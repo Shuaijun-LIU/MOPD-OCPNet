@@ -1,0 +1,233 @@
+{
+  "dataset": {
+    "title": "Combined Ocean Environment Dataset",
+    "version": "1.0.0",
+    "created": "2024-03-07",
+    "updated": "2024-03-07",
+    "license": "CC BY 4.0",
+    "description": "A unified dataset combining high-resolution bathymetry and ocean current data",
+    "keywords": [
+      "oceanography",
+      "bathymetry",
+      "ocean currents",
+      "marine environment",
+      "GEBCO",
+      "Copernicus",
+      "GCPAF"
+    ],
+    "temporal_coverage": {
+      "start": "2023-01-01",
+      "end": "2023-12-31"
+    },
+    "spatial_coverage": {
+      "type": "global",
+      "coordinate_system": "WGS84",
+      "bounding_box": {
+        "west": -180.0,
+        "east": 180.0,
+        "south": -90.0,
+        "north": 90.0
+      }
+    }
+  },
+  "creators": [
+    {
+      "name": "Dataset Team",
+      "affiliation": "Ocean Research Institute",
+      "email": "contact@example.com",
+      "orcid": "0000-0000-0000-0000"
+    }
+  ],
+  "sources": [
+    {
+      "name": "GEBCO 2024 Grid",
+      "description": "Global terrain model for ocean and land",
+      "url": "https://www.gebco.net/data_and_products/gridded_bathymetry_data/",
+      "doi": "10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f",
+      "version": "2024",
+      "citation": "GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f"
+    },
+    {
+      "name": "Global Ocean Physics Analysis and Forecast",
+      "description": "Comprehensive ocean physics data including currents, temperature, and salinity",
+      "url": "https://marine.copernicus.eu/",
+      "doi": "https://doi.org/10.48670/moi-00016",
+      "version": "2023",
+      "citation": "E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016"
+    }
+  ],
+  "variables": {
+    "terrain": [
+      {
+        "name": "elevation",
+        "description": "Elevation/depth relative to mean sea level",
+        "units": "meters",
+        "source": "GEBCO 2024"
+      }
+    ],
+    "ocean_physics": [
+      {
+        "name": "so",
+        "description": "Sea Water Salinity",
+        "units": "PSU",
+        "source": "GCPAF"
+      },
+      {
+        "name": "thetao",
+        "description": "Sea Water Potential Temperature",
+        "units": "°C",
+        "source": "GCPAF"
+      },
+      {
+        "name": "uo",
+        "description": "Eastward Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "vo",
+        "description": "Northward Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "zos",
+        "description": "Sea Surface Height Above Geoid",
+        "units": "m",
+        "source": "GCPAF"
+      },
+      {
+        "name": "utide",
+        "description": "Eastward Tidal Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "vtide",
+        "description": "Northward Tidal Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "utotal",
+        "description": "Total Eastward Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "vtotal",
+        "description": "Total Northward Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "vsdx",
+        "description": "Stokes Drift X Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      },
+      {
+        "name": "vsdy",
+        "description": "Stokes Drift Y Velocity",
+        "units": "m/s",
+        "source": "GCPAF"
+      }
+    ]
+  },
+  "file_format": {
+    "type": "NetCDF",
+    "version": "4",
+    "conventions": "CF-1.8"
+  },
+  "dimensions": {
+    "longitude": {
+      "description": "Longitude coordinates",
+      "units": "degrees_east"
+    },
+    "latitude": {
+      "description": "Latitude coordinates",
+      "units": "degrees_north"
+    },
+    "depth": {
+      "description": "Depth levels",
+      "units": "meters"
+    },
+    "time": {
+      "description": "Time dimension",
+      "units": "days since 2023-01-01 00:00:00",
+      "calendar": "gregorian"
+    }
+  },
+  "processing": {
+    "steps": [
+      {
+        "name": "Terrain Data Processing",
+        "description": "Extraction, filtering, and conversion of GEBCO 2024 data"
+      },
+      {
+        "name": "Ocean Current Data Processing",
+        "description": "Acquisition, merging, and interpolation of GCPAF data"
+      },
+      {
+        "name": "Data Integration",
+        "description": "Harmonization of spatial grids using RBF interpolation"
+      }
+    ],
+    "software": [
+      {
+        "name": "Python",
+        "version": "3.9"
+      },
+      {
+        "name": "numpy",
+        "version": "1.22.0"
+      },
+      {
+        "name": "scipy",
+        "version": "1.7.3"
+      },
+      {
+        "name": "pandas",
+        "version": "1.4.0"
+      },
+      {
+        "name": "rasterio",
+        "version": "1.2.10"
+      },
+      {
+        "name": "xarray",
+        "version": "0.20.1"
+      },
+      {
+        "name": "copernicusmarine",
+        "version": "0.6.0"
+      }
+    ]
+  },
+  "downloads": {
+    "complete_dataset": {
+      "url": "https://example.com/download/complete-dataset",
+      "size": "2.5 GB",
+      "format": "NetCDF"
+    },
+    "terrain_only": {
+      "url": "https://example.com/download/terrain-only",
+      "size": "800 MB",
+      "format": "NetCDF"
+    },
+    "currents_only": {
+      "url": "https://example.com/download/currents-only",
+      "size": "1.7 GB",
+      "format": "NetCDF"
+    },
+    "sample_dataset": {
+      "url": "https://example.com/download/sample-dataset",
+      "size": "50 MB",
+      "format": "NetCDF"
+    }
+  },
+  "citation": {
+    "text": "Author, A., et al. (2024). Combined Ocean Environment Dataset [Data set]. Retrieved from https://example.com/dataset",
+    "doi": "10.xxxx/xxxxx"
+  }
+}

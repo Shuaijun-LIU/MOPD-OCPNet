@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Description - Combined Ocean Environment Dataset</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles specific to this page */
+        .data-section {
+            margin-bottom: 3rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .data-table th, .data-table td {
+            border: 1px solid var(--medium-gray);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .data-table th {
+            background-color: var(--light-gray);
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .data-source {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .data-source h3 {
+            color: var(--dark-blue);
+        }
+        
+        .data-diagram {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Dataset Logo">
+                <h1>Combined Ocean Environment Dataset</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html" class="active">Data Description</a></li>
+                    <li><a href="visualization.html">Visualizations</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Dataset Description</h2>
+            <p>Detailed information about the Combined Ocean Environment Dataset</p>
+        </div>
+    </section>
+
+    <section class="container data-section">
+        <h2>Overview</h2>
+        <p>The Combined Ocean Environment Dataset integrates high-resolution bathymetry data with comprehensive ocean current information to create a unified resource for marine research. This dataset is designed to support a wide range of applications including ocean modeling, marine ecology studies, and climate research.</p>
+        
+        <p>The dataset combines two primary sources:</p>
+        <ol>
+            <li>GEBCO 2024 global terrain data for bathymetry information</li>
+            <li>Copernicus Marine Service (GCPAF) data for ocean currents and physical parameters</li>
+        </ol>
+        
+        <p>Through sophisticated interpolation techniques, these datasets have been harmonized to provide consistent spatial and temporal resolution across all variables.</p>
+    </section>
+
+    <section class="container data-section">
+        <h2>Data Sources</h2>
+        
+        <div class="data-source">
+            <h3>GEBCO 2024 Terrain Data</h3>
+            <p><strong>Source:</strong> General Bathymetric Chart of the Oceans (GEBCO)</p>
+            <p><strong>Description:</strong> The GEBCO_2024 Grid is a global terrain model for ocean and land, providing elevation data at 15 arc-second intervals.</p>
+            <p><strong>Resolution:</strong> 15 arc-second grid (approximately 450m at the equator)</p>
+            <p><strong>Coverage:</strong> Global</p>
+            <p><strong>Citation:</strong> GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f</p>
+        </div>
+        
+        <div class="data-source">
+            <h3>Global Ocean Physics Analysis and Forecast (GCPAF)</h3>
+            <p><strong>Source:</strong> Copernicus Marine Service Information (CMEMS)</p>
+            <p><strong>Description:</strong> Comprehensive ocean physics data including currents, temperature, and salinity.</p>
+            <p><strong>Resolution:</strong> 1/12° horizontal resolution (approximately 8km at the equator)</p>
+            <p><strong>Coverage:</strong> Global ocean</p>
+            <p><strong>Citation:</strong> E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016</p>
+        </div>
+    </section>
+
+    <section class="container data-section">
+        <h2>Dataset Variables</h2>
+        
+        <h3>Terrain Variables</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Variable</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>elevation</td>
+                    <td>Elevation/depth relative to mean sea level</td>
+                    <td>meters</td>
+                    <td>GEBCO 2024</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Ocean Physical Variables</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Variable</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>so</td>
+                    <td>Sea Water Salinity</td>
+                    <td>PSU</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>thetao</td>
+                    <td>Sea Water Potential Temperature</td>
+                    <td>°C</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>uo</td>
+                    <td>Eastward Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>vo</td>
+                    <td>Northward Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>zos</td>
+                    <td>Sea Surface Height Above Geoid</td>
+                    <td>m</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>utide</td>
+                    <td>Eastward Tidal Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>vtide</td>
+                    <td>Northward Tidal Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>utotal</td>
+                    <td>Total Eastward Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>vtotal</td>
+                    <td>Total Northward Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>vsdx</td>
+                    <td>Stokes Drift X Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+                <tr>
+                    <td>vsdy</td>
+                    <td>Stokes Drift Y Velocity</td>
+                    <td>m/s</td>
+                    <td>GCPAF</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="container data-section">
+        <h2>Data Processing</h2>
+        
+        <h3>Integration Methodology</h3>
+        <p>The dataset was created through the following processing steps:</p>
+        
+        <ol>
+            <li><strong>Terrain Data Processing:</strong>
+                <ul>
+                    <li>Extraction of GEBCO 2024 data for the region of interest</li>
+                    <li>Filtering and quality control of bathymetry data</li>
+                    <li>Conversion to standardized format</li>
+                </ul>
+            </li>
+            <li><strong>Ocean Current Data Processing:</strong>
+                <ul>
+                    <li>Acquisition of GCPAF data from Copernicus Marine Service</li>
+                    <li>Merging of multiple GCPAF datasets</li>
+                    <li>Interpolation of missing values using linear and nearest-neighbor methods</li>
+                </ul>
+            </li>
+            <li><strong>Data Integration:</strong>
+                <ul>
+                    <li>Harmonization of spatial grids using Radial Basis Function (RBF) interpolation</li>
+                    <li>Temporal alignment of current data</li>
+                    <li>Creation of unified NetCDF file with consistent dimensions</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <img src="images/combined-data.jpg" alt="Data Integration Process" class="data-diagram">
+    </section>
+
+    <section class="container data-section">
+        <h2>Data Format</h2>
+        
+        <h3>File Format</h3>
+        <p>The combined dataset is provided in NetCDF (Network Common Data Form) format, following CF-1.8 conventions. This format is widely used in climate, ocean, and atmospheric sciences and is compatible with most scientific data analysis tools.</p>
+        
+        <h3>Dimensions</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>longitude</td>
+                    <td>Longitude coordinates</td>
+                    <td>Variable (depends on region)</td>
+                </tr>
+                <tr>
+                    <td>latitude</td>
+                    <td>Latitude coordinates</td>
+                    <td>Variable (depends on region)</td>
+                </tr>
+                <tr>
+                    <td>depth</td>
+                    <td>Depth levels</td>
+                    <td>Multiple levels</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>Time dimension</td>
+                    <td>Multiple time steps</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Coordinate Reference System</h3>
+        <p>The dataset uses the WGS84 geographic coordinate system (EPSG:4326) with:</p>
+        <ul>
+            <li>Longitude: -180° to 180°</li>
+            <li>Latitude: -90° to 90°</li>
+        </ul>
+    </section>
+
+    <section class="container data-section">
+        <h2>Data Quality</h2>
+        
+        <p>The dataset has undergone several quality control procedures:</p>
+        
+        <ul>
+            <li><strong>Missing Value Handling:</strong> Missing values in the original data were filled using appropriate interpolation methods.</li>
+            <li><strong>Consistency Checks:</strong> Variables were checked for physical consistency and realistic ranges.</li>
+            <li><strong>Spatial Coherence:</strong> The integrated dataset was verified for spatial coherence across the domain.</li>
+            <li><strong>Comparison with Observations:</strong> Where available, data was compared with in-situ observations for validation.</li>
+        </ul>
+        
+        <p>Known limitations:</p>
+        <ul>
+            <li>Interpolation in areas with sparse data may introduce uncertainties</li>
+            <li>Coastal regions may have higher uncertainty due to complex bathymetry</li>
+            <li>Temporal resolution is limited by the source data frequency</li>
+        </ul>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Combined Ocean Environment Dataset</h3>
+                    <p>A comprehensive dataset for ocean environment research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@example.com</p>
+                    <p>GitHub: <a href="https://github.com/username/repository">github.com/username/repository</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

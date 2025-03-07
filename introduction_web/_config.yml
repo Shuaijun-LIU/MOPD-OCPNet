@@ -1,0 +1,56 @@
+# GitHub Pages Configuration for Combined Ocean Environment Dataset
+
+# Site settings
+title: Combined Ocean Environment Dataset
+description: A unified dataset combining high-resolution bathymetry and ocean current data
+url: "https://username.github.io/repository" # Replace with your actual GitHub Pages URL
+baseurl: "" # Leave empty if your site is at the root of the domain
+repository: username/repository # Replace with your GitHub username/repo
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+show_downloads: true
+
+# Theme settings
+theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Custom variables
+google_analytics: # Add your Google Analytics tracking ID here
+logo: /images/logo.png
+github:
+  is_project_page: true
+  repository_url: https://github.com/username/repository
+
+# Collections
+collections:
+  documentation:
+    output: true
+    permalink: /:collection/:path/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: documentation
+    values:
+      layout: page
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - README.md

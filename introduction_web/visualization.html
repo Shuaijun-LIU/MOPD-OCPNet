@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations - Combined Ocean Environment Dataset</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Plotly.js for interactive visualizations -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .viz-section {
+            margin-bottom: 4rem;
+        }
+        
+        .viz-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .viz-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .control-group select,
+        .control-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .plot-container {
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-item-content {
+            padding: 1rem;
+        }
+        
+        .gallery-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-item p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Dataset Logo">
+                <h1>Combined Ocean Environment Dataset</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html">Data Description</a></li>
+                    <li><a href="visualization.html" class="active">Visualizations</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Data Visualizations</h2>
+            <p>Interactive visualizations and example plots from the Combined Ocean Environment Dataset</p>
+        </div>
+    </section>
+
+    <section class="container viz-section">
+        <h2>Interactive Bathymetry Map</h2>
+        <div class="viz-container">
+            <div class="viz-controls">
+                <div class="control-group">
+                    <label for="region-select">Region:</label>
+                    <select id="region-select">
+                        <option value="global">Global</option>
+                        <option value="pacific">Pacific Ocean</option>
+                        <option value="atlantic">Atlantic Ocean</option>
+                        <option value="indian">Indian Ocean</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="depth-range">Depth Range (m):</label>
+                    <input type="range" id="depth-range" min="-11000" max="0" step="100" value="-6000">
+                    <span id="depth-value">-6000m</span>
+                </div>
+            </div>
+            <div class="plot-container" id="bathymetry-plot">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Loading visualization...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container viz-section">
+        <h2>Ocean Currents Visualization</h2>
+        <div class="viz-container">
+            <div class="viz-controls">
+                <div class="control-group">
+                    <label for="time-select">Time Period:</label>
+                    <select id="time-select">
+                        <option value="latest">Latest Available</option>
+                        <option value="seasonal">Seasonal Average</option>
+                        <option value="annual">Annual Average</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="depth-select">Depth Level:</label>
+                    <select id="depth-select">
+                        <option value="surface">Surface</option>
+                        <option value="100m">100m</option>
+                        <option value="500m">500m</option>
+                        <option value="1000m">1000m</option>
+                    </select>
+                </div>
+            </div>
+            <div class="plot-container" id="currents-plot">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Loading visualization...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container viz-section">
+        <h2>Temperature-Salinity Profiles</h2>
+        <div class="viz-container">
+            <div class="viz-controls">
+                <div class="control-group">
+                    <label for="location-select">Location:</label>
+                    <select id="location-select">
+                        <option value="custom">Custom (Click on map)</option>
+                        <option value="pacific">Central Pacific</option>
+                        <option value="atlantic">North Atlantic</option>
+                        <option value="indian">Indian Ocean</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="profile-type">Profile Type:</label>
+                    <select id="profile-type">
+                        <option value="both">Temperature & Salinity</option>
+                        <option value="temp">Temperature Only</option>
+                        <option value="sal">Salinity Only</option>
+                    </select>
+                </div>
+            </div>
+            <div class="plot-container" id="profile-plot">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Loading visualization...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container viz-section">
+        <h2>Example Visualizations Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/terrain-sample.jpg" alt="Global Bathymetry">
+                <div class="gallery-item-content">
+                    <h3>Global Bathymetry</h3>
+                    <p>High-resolution bathymetry data from GEBCO 2024</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/currents-sample.jpg" alt="Ocean Currents">
+                <div class="gallery-item-content">
+                    <h3>Surface Currents</h3>
+                    <p>Global ocean surface currents from GCPAF</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/combined-data.jpg" alt="Combined Data">
+                <div class="gallery-item-content">
+                    <h3>Combined Analysis</h3>
+                    <p>Integration of bathymetry and ocean current data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Combined Ocean Environment Dataset</h3>
+                    <p>A comprehensive dataset for ocean environment research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@example.com</p>
+                    <p>GitHub: <a href="https://github.com/username/repository">github.com/username/repository</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Placeholder visualization code
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example bathymetry plot
+            const bathymetryData = {
+                type: 'contour',
+                z: Array(50).fill().map(() => Array(50).fill(0).map(() => Math.random() * -6000)),
+                colorscale: 'Earth'
+            };
+            
+            Plotly.newPlot('bathymetry-plot', [bathymetryData], {
+                margin: { t: 0, b: 0, l: 0, r: 0 }
+            });
+            
+            // Example currents plot
+            const currentsData = {
+                type: 'contour',
+                z: Array(50).fill().map(() => Array(50).fill(0).map(() => Math.random())),
+                colorscale: 'Viridis'
+            };
+            
+            Plotly.newPlot('currents-plot', [currentsData], {
+                margin: { t: 0, b: 0, l: 0, r: 0 }
+            });
+            
+            // Example profile plot
+            const profileData = {
+                type: 'scatter',
+                x: Array(100).fill().map((_, i) => 20 + Math.random() * 5),
+                y: Array(100).fill().map((_, i) => -i * 10),
+                mode: 'lines',
+                name: 'Temperature'
+            };
+            
+            Plotly.newPlot('profile-plot', [profileData], {
+                margin: { t: 30, b: 30, l: 50, r: 50 },
+                yaxis: { title: 'Depth (m)' },
+                xaxis: { title: 'Temperature (°C)' }
+            });
+            
+            // Update depth range value display
+            const depthRange = document.getElementById('depth-range');
+            const depthValue = document.getElementById('depth-value');
+            depthRange.addEventListener('input', function() {
+                depthValue.textContent = this.value + 'm';
+            });
+        });
+    </script>
+</body>
+</html>

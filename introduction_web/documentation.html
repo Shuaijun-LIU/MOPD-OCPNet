@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Combined Ocean Environment Dataset</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        .doc-section {
+            margin-bottom: 4rem;
+        }
+        
+        .doc-nav {
+            position: sticky;
+            top: 100px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doc-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .doc-nav ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .doc-nav ul li a {
+            color: var(--dark-text);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-nav ul li a:hover,
+        .doc-nav ul li a.active {
+            background-color: var(--light-blue);
+            color: var(--primary-color);
+        }
+        
+        .doc-content {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-block {
+            background: var(--light-gray);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .code-block pre {
+            margin: 0;
+        }
+        
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .parameter-table th,
+        .parameter-table td {
+            border: 1px solid var(--medium-gray);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .parameter-table th {
+            background-color: var(--light-gray);
+        }
+        
+        .note {
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Dataset Logo">
+                <h1>Combined Ocean Environment Dataset</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html">Data Description</a></li>
+                    <li><a href="visualization.html">Visualizations</a></li>
+                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Documentation</h2>
+            <p>Comprehensive guide to using the Combined Ocean Environment Dataset</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="doc-nav">
+                    <h3>Contents</h3>
+                    <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#data-format">Data Format</a></li>
+                        <li><a href="#python-api">Python API</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="doc-content">
+                    <section id="getting-started" class="doc-section">
+                        <h2>Getting Started</h2>
+                        <p>The Combined Ocean Environment Dataset provides comprehensive ocean data including bathymetry and currents. This guide will help you get started with using the dataset.</p>
+                        
+                        <div class="note">
+                            <strong>Note:</strong> Before starting, ensure you have sufficient storage space (at least 3GB for the complete dataset) and the required software installed.
+                        </div>
+                    </section>
+
+                    <section id="installation" class="doc-section">
+                        <h2>Installation</h2>
+                        <p>To work with the dataset, you'll need Python 3.9 or later and several dependencies:</p>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-bash">pip install numpy scipy pandas rasterio xarray matplotlib pillow copernicusmarine</code></pre>
+                        </div>
+                        
+                        <p>Or using the provided requirements file:</p>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-bash">pip install -r requirements.txt</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="data-format" class="doc-section">
+                        <h2>Data Format</h2>
+                        <p>The dataset is provided in NetCDF format (version 4) following CF-1.8 conventions. The main variables are:</p>
+                        
+                        <table class="parameter-table">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Description</th>
+                                    <th>Units</th>
+                                    <th>Dimensions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elevation</td>
+                                    <td>Bathymetry/elevation</td>
+                                    <td>meters</td>
+                                    <td>lat, lon</td>
+                                </tr>
+                                <tr>
+                                    <td>so</td>
+                                    <td>Salinity</td>
+                                    <td>PSU</td>
+                                    <td>time, depth, lat, lon</td>
+                                </tr>
+                                <tr>
+                                    <td>thetao</td>
+                                    <td>Temperature</td>
+                                    <td>°C</td>
+                                    <td>time, depth, lat, lon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="python-api" class="doc-section">
+                        <h2>Python API</h2>
+                        <p>The dataset can be easily loaded and processed using xarray:</p>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-python">import xarray as xr
+
+# Load the dataset
+ds = xr.open_dataset('path/to/combined_environment.nc')
+
+# Access variables
+bathymetry = ds.elevation
+temperature = ds.thetao
+salinity = ds.so
+
+# Select specific region
+region = ds.sel(
+    longitude=slice(-180, 180),
+    latitude=slice(-90, 90)
+)</code></pre>
+                        </div>
+                        
+                        <h3>Key Functions</h3>
+                        <p>The sample code provides several utility functions:</p>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-python">from sample_code import (
+    load_dataset,
+    plot_bathymetry,
+    plot_ocean_currents,
+    plot_temperature_salinity_profile
+)</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="examples" class="doc-section">
+                        <h2>Examples</h2>
+                        <h3>Plotting Bathymetry</h3>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-python">import matplotlib.pyplot as plt
+from sample_code import plot_bathymetry
+
+# Load and plot bathymetry
+ds = load_dataset('path/to/dataset.nc')
+fig, ax = plot_bathymetry(ds)
+plt.show()</code></pre>
+                        </div>
+                        
+                        <h3>Analyzing Ocean Currents</h3>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-python"># Plot ocean currents at 100m depth
+fig, ax = plot_ocean_currents(ds, depth_idx=10)  # Depth index for 100m
+plt.show()</code></pre>
+                        </div>
+                    </section>
+
+                    <section id="troubleshooting" class="doc-section">
+                        <h2>Troubleshooting</h2>
+                        
+                        <div class="warning">
+                            <strong>Common Issues:</strong>
+                            <ul>
+                                <li>Memory errors when loading large datasets</li>
+                                <li>Projection issues in visualization</li>
+                                <li>Missing dependencies</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Memory Management</h3>
+                        <p>For large datasets, use dask for parallel processing:</p>
+                        
+                        <div class="code-block">
+                            <pre><code class="language-python">import xarray as xr
+
+# Use dask for parallel processing
+ds = xr.open_dataset('large_dataset.nc', chunks={'time': 100})</code></pre>
+                        </div>
+                        
+                        <h3>Getting Help</h3>
+                        <p>If you encounter issues:</p>
+                        <ol>
+                            <li>Check the <a href="https://github.com/username/repository/issues">GitHub Issues</a></li>
+                            <li>Review the error messages and logs</li>
+                            <li>Contact us at support@example.com</li>
+                        </ol>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Combined Ocean Environment Dataset</h3>
+                    <p>A comprehensive dataset for ocean environment research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@example.com</p>
+                    <p>GitHub: <a href="https://github.com/username/repository">github.com/username/repository</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
