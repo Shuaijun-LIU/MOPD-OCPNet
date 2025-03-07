@@ -1,12 +1,12 @@
-## MOPD (Marine Oceanic Pollution and Dynamics Dataset)
+#  A Large-Scale Oceanographic Dataset for Machine Learning-Based Ocean Current and Pollution Prediction
 
-### Required Packages
+## Required Packages
 Ensure the following Python packages are installed to execute the steps:
 ```bash
 pip install numpy scipy pandas rasterio xarray matplotlib pillow copernicusmarine
 ```
 
-### File Structure
+## File Structure
 ```plaintext
 env_config/
 │
@@ -38,6 +38,9 @@ env_config/
 ```
 ---
 
+
+## MOPD (Marine Oceanic Pollution and Dynamics Dataset)
+
 ### Step 1: Get Terrain Data and Visualize
 1. **Dataset Description: Global Ocean & Land Terrain Models**  
    The terrain data used in this step is based on **GEBCO’s gridded bathymetric dataset**, the **[GEBCO_2024 Grid](https://www.gebco.net/data_and_products/gridded_bathymetry_data/)**. This dataset provides a global terrain model for both ocean and land. 
@@ -65,7 +68,7 @@ env_config/
    - **Function:** `tif_to_csv`  
    Convert the terrain data from `.tif` to `.csv` for further processing.
 
----
+
 ### Step 2: Get Currents Forecast Data (GCPAF)
 1. **Dataset Description:**  
    The marine data is sourced from the *Global Ocean Physics Analysis and Forecast (GCPAF)* datasets provided by CMEMS. We fetch two separate datasets from GCPAF and merge them into a single NetCDF file named `combined_gcpaf_data.nc`.
@@ -98,7 +101,6 @@ env_config/
 3. **Complete and Inspect Dataset**  
 Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, then verify the structure and attributes for data quality.  
 
----
 
 ### Step 3: Combine Terrain and Currents Data
 
@@ -121,7 +123,6 @@ Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, the
   - **Function:** `interpolate_and_merge`  
   Merge the high-resolution terrain data with currents data.
 
----
 
 ### (Optional) Fetch Currents Ture Data from NOAA
 
@@ -140,6 +141,11 @@ Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, the
    - **Function:** `find_nearest_current_station`  
    Determine the closest current station and fetch the corresponding data.
 
-### Support
+---
+
+## OCPNet (Ocean Current and Pollution Prediction Network)
+
+
+## Support
 E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016. 
 GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f.
