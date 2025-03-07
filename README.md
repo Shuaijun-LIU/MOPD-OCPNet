@@ -1,5 +1,4 @@
-## Environment Configuration
-**🌟 main function: env_config.py**
+## MOPD (Marine Oceanic Pollution and Dynamics Dataset)
 
 ### Required Packages
 Ensure the following Python packages are installed to execute the steps:
