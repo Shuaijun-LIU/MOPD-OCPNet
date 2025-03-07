@@ -1,4 +1,4 @@
-#  A Large-Scale Oceanographic Dataset for Machine Learning-Based Ocean Current and Pollution Prediction
+# A Large-Scale Oceanographic Dataset and Prediction Framework for Ocean Currents and Pollution Dispersion
 
 ## Required Packages
 Ensure the following Python packages are installed to execute the steps:
