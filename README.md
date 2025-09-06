@@ -1,4 +1,6 @@
-## MOPD (Marine Oceanic Pollution and Dynamics Dataset)
+# A Large-Scale Oceanographic Dataset and Prediction Framework for Ocean Currents and Pollution Dispersion
+## Overview
+MOPD-OCPNet consists of a large Marine Oceanic Pollution and Dynamics Dataset (MOPD) that integrates topography, currents, and pollution, and a machine learning model (OCPNet) for accurate prediction.
 
 ### Required Packages
 Ensure the following Python packages are installed to execute the steps:
@@ -14,20 +16,20 @@ env_config/
 │   ├── Combined/
 │   │   ├── combined_environment.nc
 │   │   ├── large/
-│   ├── GCPAF/
+│   ├── GOPAF/
 │   ├── gebco_2024_sub_ice_topo_geotiff/
 │   ├── Visualizations/
 │
 ├── other_code/
 │   ├── buildmap.ipynb
-│   ├── gcpaf_original.ipynb
+│   ├── gopaf_original.ipynb
 │   ├── GeoTIFF_original.ipynb
 │   ├── geotifftest2.ipynb
 │
 ├── main.py # Calling the modules
 ├── Combine.py # [Data Integration Module] Fusion of terrain (GeoTIFF) and current data (NetCDF), harmonization of grids by RBF interpolation, interpolation of current data and storage as NetCDF (combined_environment.nc).
-├── GCPAF_Data.py # [Current Data-processing Module] Acquisition, merging and missing value interpolation of Copernicus marine data
-├── GCPAF_visual.py  
+├── GOPAF_Data.py # [Current Data-processing Module] Acquisition, merging and missing value interpolation of Copernicus marine data
+├── GOPAF_visual.py  
 ├── GeoTIFF_Data.py # [Terrain Data-processing Module] Filter, crop, filter and convert GeoTIFF terrain data. 
 ├── GeoTIFF_visual.py 
 ├── get_station_id.py # [NOAA Site Acquisition Module] Finds the closest site ID from NOAA to the specified location
@@ -38,7 +40,9 @@ env_config/
 ```
 ---
 
-### Step 1: Get Terrain Data and Visualize
+## MOPD (Marine Oceanic Pollution and Dynamics Dataset)
+### Pipeline
+#### Step 1: Get Terrain Data and Visualize
 1. **Dataset Description: Global Ocean & Land Terrain Models**  
    The terrain data used in this step is based on **GEBCO’s gridded bathymetric dataset**, the **[GEBCO_2024 Grid](https://www.gebco.net/data_and_products/gridded_bathymetry_data/)**. This dataset provides a global terrain model for both ocean and land. 
    - **Resolution**: 15 arc-second interval grid  
@@ -66,9 +70,9 @@ env_config/
    Convert the terrain data from `.tif` to `.csv` for further processing.
 
 ---
-### Step 2: Get Currents Forecast Data (GCPAF)
+### Step 2: Get Currents Forecast Data (GOPAF)
 1. **Dataset Description:**  
-   The marine data is sourced from the *Global Ocean Physics Analysis and Forecast (GCPAF)* datasets provided by CMEMS. We fetch two separate datasets from GCPAF and merge them into a single NetCDF file named `combined_gcpaf_data.nc`.
+   The marine data is sourced from the *Global Ocean Physics Analysis and Forecast (GOPAF)* datasets provided by CMEMS. We fetch two separate datasets from GOPAF and merge them into a single NetCDF file named `combined_gopaf_data.nc`.
    - **Variables**:  
      - **Basic Physical Variables**:  
        - `so`: Sea Water Salinity  
@@ -92,11 +96,15 @@ env_config/
     
 
 2. **Fetch and Merge Copernicus Data**  
-   - **File:** `GCPAF_Data.py`  
+   - **File:** `GOPAF_Data.py`  
    - **Function:** `fetch_and_merge_copernicus_data`  
   
 3. **Complete and Inspect Dataset**  
 Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, then verify the structure and attributes for data quality.  
+
+### Dataset
+
+
 
 ---
 
@@ -106,7 +114,7 @@ Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, the
 - **Interpolate and Merge Data**  
   - **File:** `Combine.py`  
   - **Function:** `interpolate_and_merge`  
-  Combine terrain (`GeoTIFF`) and currents (`GCPAF`) data into a unified dataset.
+  Combine terrain (`GeoTIFF`) and currents (`GOPAF`) data into a unified dataset.
 
 - **Visualize Combined Data**   
   - **Function:** `visualize_combined_data`  
@@ -140,6 +148,13 @@ Fill missing values (`NaN`) using linear and nearest-neighbor interpolation, the
    - **Function:** `find_nearest_current_station`  
    Determine the closest current station and fetch the corresponding data.
 
+---
+
+## OCPNet (Ocean Current and Pollution Prediction Network)
+
+
+---
 ### Support
-E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016. 
+E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GOPAF). doi:https://doi.org/10.48670/moi-00016. 
 GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f.
+

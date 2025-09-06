@@ -1,0 +1,3591 @@
+Time: 3600.0 s
+Field: NH4
+Mean: 0.070820
+Std: 0.035153
+Min: 0.000000
+Max: 2.966644
+
+Time: 3600.0 s
+Field: PO4
+Mean: 42.229114
+Std: 81.798982
+Min: 0.046790
+Max: 359.219073
+
+Time: 3600.0 s
+Field: Hg
+Mean: -0.000365
+Std: 0.000000
+Min: -0.000365
+Max: -0.000328
+
+Time: 7200.0 s
+Field: NH4
+Mean: 0.050383
+Std: 0.059036
+Min: 0.000000
+Max: 6.136405
+
+Time: 7200.0 s
+Field: PO4
+Mean: 168.456469
+Std: 212.979807
+Min: 0.043630
+Max: 716.711086
+
+Time: 7200.0 s
+Field: Hg
+Mean: -0.000724
+Std: 0.000001
+Min: -0.000724
+Max: -0.000648
+
+Time: 10800.0 s
+Field: NH4
+Mean: 0.045630
+Std: 0.086452
+Min: 0.000000
+Max: 8.894612
+
+Time: 10800.0 s
+Field: PO4
+Mean: 334.465854
+Std: 368.685389
+Min: 0.040524
+Max: 1072.533881
+
+Time: 10800.0 s
+Field: Hg
+Mean: -0.001081
+Std: 0.000001
+Min: -0.001081
+Max: -0.000971
+
+Time: 14400.0 s
+Field: NH4
+Mean: 0.044535
+Std: 0.113563
+Min: 0.000000
+Max: 11.046859
+
+Time: 14400.0 s
+Field: PO4
+Mean: 508.860523
+Std: 533.783391
+Min: 0.037476
+Max: 1426.695251
+
+Time: 14400.0 s
+Field: Hg
+Mean: -0.001436
+Std: 0.000002
+Min: -0.001437
+Max: -0.001295
+
+Time: 18000.0 s
+Field: NH4
+Mean: 0.043740
+Std: 0.135567
+Min: 0.000000
+Max: 12.446251
+
+Time: 18000.0 s
+Field: PO4
+Mean: 684.447847
+Std: 702.333688
+Min: 0.034491
+Max: 1779.202954
+
+Time: 18000.0 s
+Field: Hg
+Mean: -0.001790
+Std: 0.000003
+Min: -0.001791
+Max: -0.001625
+
+Time: 21600.0 s
+Field: NH4
+Mean: 0.042543
+Std: 0.149611
+Min: 0.000000
+Max: 12.997413
+
+Time: 21600.0 s
+Field: PO4
+Mean: 859.715323
+Std: 872.137625
+Min: 0.031573
+Max: 2130.064711
+
+Time: 21600.0 s
+Field: Hg
+Mean: -0.002143
+Std: 0.000004
+Min: -0.002144
+Max: -0.001964
+
+Time: 25200.0 s
+Field: NH4
+Mean: 0.040714
+Std: 0.154179
+Min: 0.000000
+Max: 12.662782
+
+Time: 25200.0 s
+Field: PO4
+Mean: 1034.297764
+Std: 1042.252670
+Min: 0.028728
+Max: 2479.288207
+
+Time: 25200.0 s
+Field: Hg
+Mean: -0.002495
+Std: 0.000005
+Min: -0.002496
+Max: -0.002311
+
+Time: 28800.0 s
+Field: NH4
+Mean: 0.038158
+Std: 0.148725
+Min: 0.000000
+Max: 11.465163
+
+Time: 28800.0 s
+Field: PO4
+Mean: 1208.101455
+Std: 1212.224762
+Min: 0.025964
+Max: 2826.881093
+
+Time: 28800.0 s
+Field: Hg
+Mean: -0.002845
+Std: 0.000006
+Min: -0.002846
+Max: -0.002668
+
+Time: 32400.0 s
+Field: NH4
+Mean: 0.034865
+Std: 0.133549
+Min: 0.000000
+Max: 9.486171
+
+Time: 32400.0 s
+Field: PO4
+Mean: 1381.103659
+Std: 1381.815101
+Min: 0.023288
+Max: 3172.850982
+
+Time: 32400.0 s
+Field: Hg
+Mean: -0.003194
+Std: 0.000007
+Min: -0.003196
+Max: -0.003034
+
+Time: 36000.0 s
+Field: NH4
+Mean: 0.030887
+Std: 0.109765
+Min: 0.000000
+Max: 6.860673
+
+Time: 36000.0 s
+Field: PO4
+Mean: 1553.300875
+Std: 1550.888998
+Min: 0.020710
+Max: 3517.205451
+
+Time: 36000.0 s
+Field: Hg
+Mean: -0.003542
+Std: 0.000008
+Min: -0.003544
+Max: -0.003409
+
+Time: 39600.0 s
+Field: NH4
+Mean: 0.026336
+Std: 0.079372
+Min: 0.000000
+Max: 3.767593
+
+Time: 39600.0 s
+Field: PO4
+Mean: 1724.694868
+Std: 1719.366111
+Min: 0.018241
+Max: 3859.952044
+
+Time: 39600.0 s
+Field: Hg
+Mean: -0.003889
+Std: 0.000008
+Min: -0.003890
+Max: -0.003790
+
+Time: 43200.0 s
+Field: NH4
+Mean: 0.021371
+Std: 0.046159
+Min: 0.000000
+Max: 1.033972
+
+Time: 43200.0 s
+Field: PO4
+Mean: 1895.288844
+Std: 1887.196379
+Min: 0.015891
+Max: 4201.098269
+
+Time: 43200.0 s
+Field: Hg
+Mean: -0.004234
+Std: 0.000008
+Min: -0.004236
+Max: -0.004163
+
+Time: 46800.0 s
+Field: NH4
+Mean: 0.016193
+Std: 0.025741
+Min: -2.960678
+Max: 0.395486
+
+Time: 46800.0 s
+Field: PO4
+Mean: 2065.086392
+Std: 2054.347573
+Min: 0.013675
+Max: 4540.651597
+
+Time: 46800.0 s
+Field: Hg
+Mean: -0.004579
+Std: 0.000007
+Min: -0.004580
+Max: -0.004511
+
+Time: 50400.0 s
+Field: NH4
+Mean: 0.011042
+Std: 0.048032
+Min: -6.137314
+Max: 1.570151
+
+Time: 50400.0 s
+Field: PO4
+Mean: 2234.091199
+Std: 2220.798483
+Min: 0.011607
+Max: 4878.619467
+
+Time: 50400.0 s
+Field: Hg
+Mean: -0.004922
+Std: 0.000006
+Min: -0.004950
+Max: -0.004855
+
+Time: 54000.0 s
+Field: NH4
+Mean: 0.006098
+Std: 0.083137
+Min: -8.895700
+Max: 12.353516
+
+Time: 54000.0 s
+Field: PO4
+Mean: 2402.306959
+Std: 2386.534989
+Min: 0.009701
+Max: 5215.009281
+
+Time: 54000.0 s
+Field: Hg
+Mean: -0.005264
+Std: 0.000005
+Min: -0.005333
+Max: -0.005199
+
+Time: 57600.0 s
+Field: NH4
+Mean: 0.001545
+Std: 0.111577
+Min: -11.047819
+Max: 2.233162
+
+Time: 57600.0 s
+Field: PO4
+Mean: 2569.737364
+Std: 2551.547697
+Min: 0.007972
+Max: 5549.828408
+
+Time: 57600.0 s
+Field: Hg
+Mean: -0.005604
+Std: 0.000004
+Min: -0.005708
+Max: -0.005545
+
+Time: 61200.0 s
+Field: NH4
+Mean: -0.002118
+Std: 0.149890
+Min: -12.447068
+Max: 35.240704
+
+Time: 61200.0 s
+Field: PO4
+Mean: 2736.386084
+Std: 2715.830456
+Min: 0.006433
+Max: 5883.084181
+
+Time: 61200.0 s
+Field: Hg
+Mean: -0.005944
+Std: 0.000003
+Min: -0.006075
+Max: -0.005892
+
+Time: 64800.0 s
+Field: NH4
+Mean: -0.005332
+Std: 0.149792
+Min: -12.998098
+Max: 0.074905
+
+Time: 64800.0 s
+Field: PO4
+Mean: 2902.256776
+Std: 2879.379402
+Min: 0.005092
+Max: 6214.783901
+
+Time: 64800.0 s
+Field: Hg
+Mean: -0.006282
+Std: 0.000002
+Min: -0.006431
+Max: -0.006240
+
+Time: 68400.0 s
+Field: NH4
+Mean: -0.007538
+Std: 0.154992
+Min: -12.663965
+Max: 0.458238
+
+Time: 68400.0 s
+Field: PO4
+Mean: 3067.353073
+Std: 3042.192319
+Min: 0.003953
+Max: 6544.934832
+
+Time: 68400.0 s
+Field: Hg
+Mean: -0.006619
+Std: 0.000002
+Min: -0.006775
+Max: -0.006589
+
+Time: 72000.0 s
+Field: NH4
+Mean: -0.008610
+Std: 0.149520
+Min: -11.466417
+Max: 0.555645
+
+Time: 72000.0 s
+Field: PO4
+Mean: 3231.678591
+Std: 3204.268202
+Min: 0.003010
+Max: 6873.544207
+
+Time: 72000.0 s
+Field: Hg
+Mean: -0.006955
+Std: 0.000003
+Min: -0.007106
+Max: -0.006936
+
+Time: 75600.0 s
+Field: NH4
+Mean: -0.008678
+Std: 0.134360
+Min: -9.487474
+Max: 0.247548
+
+Time: 75600.0 s
+Field: PO4
+Mean: 3395.236922
+Std: 3365.606949
+Min: 0.002250
+Max: 7200.619224
+
+Time: 75600.0 s
+Field: Hg
+Mean: -0.007290
+Std: 0.000004
+Min: -0.007425
+Max: -0.007282
+
+Time: 79200.0 s
+Field: NH4
+Mean: -0.007949
+Std: 0.110677
+Min: -6.862069
+Max: 0.263489
+
+Time: 79200.0 s
+Field: PO4
+Mean: 3558.031640
+Std: 3526.209144
+Min: 0.001656
+Max: 7526.167047
+
+Time: 79200.0 s
+Field: Hg
+Mean: -0.007623
+Std: 0.000004
+Min: -0.007734
+Max: -0.007620
+
+Time: 82800.0 s
+Field: NH4
+Mean: -0.006240
+Std: 0.079937
+Min: -3.769011
+Max: 0.772525
+
+Time: 82800.0 s
+Field: PO4
+Mean: 3720.066299
+Std: 3686.075899
+Min: 0.001201
+Max: 7850.194806
+
+Time: 82800.0 s
+Field: Hg
+Mean: -0.007955
+Std: 0.000005
+Min: -0.008033
+Max: -0.007953
+
+Time: 3600.0 s
+Field: NH4
+Mean: 0.070820
+Std: 0.035153
+Min: 0.000000
+Max: 2.966644
+
+Time: 3600.0 s
+Field: PO4
+Mean: 42.229114
+Std: 81.798982
+Min: 0.046790
+Max: 359.219073
+
+Time: 3600.0 s
+Field: Hg
+Mean: -0.000365
+Std: 0.000000
+Min: -0.000365
+Max: -0.000328
+
+Time: 7200.0 s
+Field: NH4
+Mean: 0.050383
+Std: 0.059036
+Min: 0.000000
+Max: 6.136405
+
+Time: 7200.0 s
+Field: PO4
+Mean: 168.456469
+Std: 212.979807
+Min: 0.043630
+Max: 716.711086
+
+Time: 7200.0 s
+Field: Hg
+Mean: -0.000724
+Std: 0.000001
+Min: -0.000724
+Max: -0.000648
+
+Time: 10800.0 s
+Field: NH4
+Mean: 0.045630
+Std: 0.086452
+Min: 0.000000
+Max: 8.894612
+
+Time: 10800.0 s
+Field: PO4
+Mean: 334.465854
+Std: 368.685389
+Min: 0.040524
+Max: 1072.533881
+
+Time: 10800.0 s
+Field: Hg
+Mean: -0.001081
+Std: 0.000001
+Min: -0.001081
+Max: -0.000971
+
+Time: 14400.0 s
+Field: NH4
+Mean: 0.044535
+Std: 0.113563
+Min: 0.000000
+Max: 11.046859
+
+Time: 14400.0 s
+Field: PO4
+Mean: 508.860523
+Std: 533.783391
+Min: 0.037476
+Max: 1426.695251
+
+Time: 14400.0 s
+Field: Hg
+Mean: -0.001436
+Std: 0.000002
+Min: -0.001437
+Max: -0.001295
+
+Time: 18000.0 s
+Field: NH4
+Mean: 0.043740
+Std: 0.135567
+Min: 0.000000
+Max: 12.446251
+
+Time: 18000.0 s
+Field: PO4
+Mean: 684.447847
+Std: 702.333688
+Min: 0.034491
+Max: 1779.202954
+
+Time: 18000.0 s
+Field: Hg
+Mean: -0.001790
+Std: 0.000003
+Min: -0.001791
+Max: -0.001625
+
+Time: 21600.0 s
+Field: NH4
+Mean: 0.042543
+Std: 0.149611
+Min: 0.000000
+Max: 12.997413
+
+Time: 21600.0 s
+Field: PO4
+Mean: 859.715323
+Std: 872.137625
+Min: 0.031573
+Max: 2130.064711
+
+Time: 21600.0 s
+Field: Hg
+Mean: -0.002143
+Std: 0.000004
+Min: -0.002144
+Max: -0.001964
+
+Time: 25200.0 s
+Field: NH4
+Mean: 0.040714
+Std: 0.154179
+Min: 0.000000
+Max: 12.662782
+
+Time: 25200.0 s
+Field: PO4
+Mean: 1034.297764
+Std: 1042.252670
+Min: 0.028728
+Max: 2479.288207
+
+Time: 25200.0 s
+Field: Hg
+Mean: -0.002495
+Std: 0.000005
+Min: -0.002496
+Max: -0.002311
+
+Time: 28800.0 s
+Field: NH4
+Mean: 0.038158
+Std: 0.148725
+Min: 0.000000
+Max: 11.465163
+
+Time: 28800.0 s
+Field: PO4
+Mean: 1208.101455
+Std: 1212.224762
+Min: 0.025964
+Max: 2826.881093
+
+Time: 28800.0 s
+Field: Hg
+Mean: -0.002845
+Std: 0.000006
+Min: -0.002846
+Max: -0.002668
+
+Time: 32400.0 s
+Field: NH4
+Mean: 0.034865
+Std: 0.133549
+Min: 0.000000
+Max: 9.486171
+
+Time: 32400.0 s
+Field: PO4
+Mean: 1381.103659
+Std: 1381.815101
+Min: 0.023288
+Max: 3172.850982
+
+Time: 32400.0 s
+Field: Hg
+Mean: -0.003194
+Std: 0.000007
+Min: -0.003196
+Max: -0.003034
+
+Time: 36000.0 s
+Field: NH4
+Mean: 0.030887
+Std: 0.109765
+Min: 0.000000
+Max: 6.860673
+
+Time: 36000.0 s
+Field: PO4
+Mean: 1553.300875
+Std: 1550.888998
+Min: 0.020710
+Max: 3517.205451
+
+Time: 36000.0 s
+Field: Hg
+Mean: -0.003542
+Std: 0.000008
+Min: -0.003544
+Max: -0.003409
+
+Time: 39600.0 s
+Field: NH4
+Mean: 0.026336
+Std: 0.079372
+Min: 0.000000
+Max: 3.767593
+
+Time: 39600.0 s
+Field: PO4
+Mean: 1724.694868
+Std: 1719.366111
+Min: 0.018241
+Max: 3859.952044
+
+Time: 39600.0 s
+Field: Hg
+Mean: -0.003889
+Std: 0.000008
+Min: -0.003890
+Max: -0.003790
+
+Time: 43200.0 s
+Field: NH4
+Mean: 0.021371
+Std: 0.046159
+Min: 0.000000
+Max: 1.033972
+
+Time: 43200.0 s
+Field: PO4
+Mean: 1895.288844
+Std: 1887.196379
+Min: 0.015891
+Max: 4201.098269
+
+Time: 43200.0 s
+Field: Hg
+Mean: -0.004234
+Std: 0.000008
+Min: -0.004236
+Max: -0.004163
+
+Time: 46800.0 s
+Field: NH4
+Mean: 0.016193
+Std: 0.025741
+Min: -2.960678
+Max: 0.395486
+
+Time: 46800.0 s
+Field: PO4
+Mean: 2065.086392
+Std: 2054.347573
+Min: 0.013675
+Max: 4540.651597
+
+Time: 46800.0 s
+Field: Hg
+Mean: -0.004579
+Std: 0.000007
+Min: -0.004580
+Max: -0.004511
+
+Time: 50400.0 s
+Field: NH4
+Mean: 0.011042
+Std: 0.048032
+Min: -6.137314
+Max: 1.570151
+
+Time: 50400.0 s
+Field: PO4
+Mean: 2234.091199
+Std: 2220.798483
+Min: 0.011607
+Max: 4878.619467
+
+Time: 50400.0 s
+Field: Hg
+Mean: -0.004922
+Std: 0.000006
+Min: -0.004950
+Max: -0.004855
+
+Time: 54000.0 s
+Field: NH4
+Mean: 0.006098
+Std: 0.083137
+Min: -8.895700
+Max: 12.353516
+
+Time: 54000.0 s
+Field: PO4
+Mean: 2402.306959
+Std: 2386.534989
+Min: 0.009701
+Max: 5215.009281
+
+Time: 54000.0 s
+Field: Hg
+Mean: -0.005264
+Std: 0.000005
+Min: -0.005333
+Max: -0.005199
+
+Time: 57600.0 s
+Field: NH4
+Mean: 0.001545
+Std: 0.111577
+Min: -11.047819
+Max: 2.233162
+
+Time: 57600.0 s
+Field: PO4
+Mean: 2569.737364
+Std: 2551.547697
+Min: 0.007972
+Max: 5549.828408
+
+Time: 57600.0 s
+Field: Hg
+Mean: -0.005604
+Std: 0.000004
+Min: -0.005708
+Max: -0.005545
+
+Time: 61200.0 s
+Field: NH4
+Mean: -0.002118
+Std: 0.149890
+Min: -12.447068
+Max: 35.240704
+
+Time: 61200.0 s
+Field: PO4
+Mean: 2736.386084
+Std: 2715.830456
+Min: 0.006433
+Max: 5883.084181
+
+Time: 61200.0 s
+Field: Hg
+Mean: -0.005944
+Std: 0.000003
+Min: -0.006075
+Max: -0.005892
+
+Time: 64800.0 s
+Field: NH4
+Mean: -0.005332
+Std: 0.149792
+Min: -12.998098
+Max: 0.074905
+
+Time: 64800.0 s
+Field: PO4
+Mean: 2902.256776
+Std: 2879.379402
+Min: 0.005092
+Max: 6214.783901
+
+Time: 64800.0 s
+Field: Hg
+Mean: -0.006282
+Std: 0.000002
+Min: -0.006431
+Max: -0.006240
+
+Time: 68400.0 s
+Field: NH4
+Mean: -0.007538
+Std: 0.154992
+Min: -12.663965
+Max: 0.458238
+
+Time: 68400.0 s
+Field: PO4
+Mean: 3067.353073
+Std: 3042.192319
+Min: 0.003953
+Max: 6544.934832
+
+Time: 68400.0 s
+Field: Hg
+Mean: -0.006619
+Std: 0.000002
+Min: -0.006775
+Max: -0.006589
+
+Time: 72000.0 s
+Field: NH4
+Mean: -0.008610
+Std: 0.149520
+Min: -11.466417
+Max: 0.555645
+
+Time: 72000.0 s
+Field: PO4
+Mean: 3231.678591
+Std: 3204.268202
+Min: 0.003010
+Max: 6873.544207
+
+Time: 72000.0 s
+Field: Hg
+Mean: -0.006955
+Std: 0.000003
+Min: -0.007106
+Max: -0.006936
+
+Time: 75600.0 s
+Field: NH4
+Mean: -0.008678
+Std: 0.134360
+Min: -9.487474
+Max: 0.247548
+
+Time: 75600.0 s
+Field: PO4
+Mean: 3395.236922
+Std: 3365.606949
+Min: 0.002250
+Max: 7200.619224
+
+Time: 75600.0 s
+Field: Hg
+Mean: -0.007290
+Std: 0.000004
+Min: -0.007425
+Max: -0.007282
+
+Time: 79200.0 s
+Field: NH4
+Mean: -0.007949
+Std: 0.110677
+Min: -6.862069
+Max: 0.263489
+
+Time: 79200.0 s
+Field: PO4
+Mean: 3558.031640
+Std: 3526.209144
+Min: 0.001656
+Max: 7526.167047
+
+Time: 79200.0 s
+Field: Hg
+Mean: -0.007623
+Std: 0.000004
+Min: -0.007734
+Max: -0.007620
+
+Time: 82800.0 s
+Field: NH4
+Mean: -0.006240
+Std: 0.079937
+Min: -3.769011
+Max: 0.772525
+
+Time: 82800.0 s
+Field: PO4
+Mean: 3720.066299
+Std: 3686.075899
+Min: 0.001201
+Max: 7850.194806
+
+Time: 82800.0 s
+Field: Hg
+Mean: -0.007955
+Std: 0.000005
+Min: -0.008033
+Max: -0.007953
+
+Time: 3600.0 s
+Field: NH4
+Mean: 0.070820
+Std: 0.035153
+Min: 0.000000
+Max: 2.966644
+
+Time: 3600.0 s
+Field: PO4
+Mean: 42.229114
+Std: 81.798982
+Min: 0.046790
+Max: 359.219073
+
+Time: 3600.0 s
+Field: Hg
+Mean: -0.000365
+Std: 0.000000
+Min: -0.000365
+Max: -0.000328
+
+Time: 7200.0 s
+Field: NH4
+Mean: 0.050383
+Std: 0.059036
+Min: 0.000000
+Max: 6.136405
+
+Time: 7200.0 s
+Field: PO4
+Mean: 168.456469
+Std: 212.979807
+Min: 0.043630
+Max: 716.711086
+
+Time: 7200.0 s
+Field: Hg
+Mean: -0.000724
+Std: 0.000001
+Min: -0.000724
+Max: -0.000648
+
+Time: 10800.0 s
+Field: NH4
+Mean: 0.045630
+Std: 0.086452
+Min: 0.000000
+Max: 8.894612
+
+Time: 10800.0 s
+Field: PO4
+Mean: 334.465854
+Std: 368.685389
+Min: 0.040524
+Max: 1072.533881
+
+Time: 10800.0 s
+Field: Hg
+Mean: -0.001081
+Std: 0.000001
+Min: -0.001081
+Max: -0.000971
+
+Time: 14400.0 s
+Field: NH4
+Mean: 0.044535
+Std: 0.113563
+Min: 0.000000
+Max: 11.046859
+
+Time: 14400.0 s
+Field: PO4
+Mean: 508.860523
+Std: 533.783391
+Min: 0.037476
+Max: 1426.695251
+
+Time: 14400.0 s
+Field: Hg
+Mean: -0.001436
+Std: 0.000002
+Min: -0.001437
+Max: -0.001295
+
+Time: 18000.0 s
+Field: NH4
+Mean: 0.043740
+Std: 0.135567
+Min: 0.000000
+Max: 12.446251
+
+Time: 18000.0 s
+Field: PO4
+Mean: 684.447847
+Std: 702.333688
+Min: 0.034491
+Max: 1779.202954
+
+Time: 18000.0 s
+Field: Hg
+Mean: -0.001790
+Std: 0.000003
+Min: -0.001791
+Max: -0.001625
+
+Time: 21600.0 s
+Field: NH4
+Mean: 0.042543
+Std: 0.149611
+Min: 0.000000
+Max: 12.997413
+
+Time: 21600.0 s
+Field: PO4
+Mean: 859.715323
+Std: 872.137625
+Min: 0.031573
+Max: 2130.064711
+
+Time: 21600.0 s
+Field: Hg
+Mean: -0.002143
+Std: 0.000004
+Min: -0.002144
+Max: -0.001964
+
+Time: 25200.0 s
+Field: NH4
+Mean: 0.040714
+Std: 0.154179
+Min: 0.000000
+Max: 12.662782
+
+Time: 25200.0 s
+Field: PO4
+Mean: 1034.297764
+Std: 1042.252670
+Min: 0.028728
+Max: 2479.288207
+
+Time: 25200.0 s
+Field: Hg
+Mean: -0.002495
+Std: 0.000005
+Min: -0.002496
+Max: -0.002311
+
+Time: 28800.0 s
+Field: NH4
+Mean: 0.038158
+Std: 0.148725
+Min: 0.000000
+Max: 11.465163
+
+Time: 28800.0 s
+Field: PO4
+Mean: 1208.101455
+Std: 1212.224762
+Min: 0.025964
+Max: 2826.881093
+
+Time: 28800.0 s
+Field: Hg
+Mean: -0.002845
+Std: 0.000006
+Min: -0.002846
+Max: -0.002668
+
+Time: 32400.0 s
+Field: NH4
+Mean: 0.034865
+Std: 0.133549
+Min: 0.000000
+Max: 9.486171
+
+Time: 32400.0 s
+Field: PO4
+Mean: 1381.103659
+Std: 1381.815101
+Min: 0.023288
+Max: 3172.850982
+
+Time: 32400.0 s
+Field: Hg
+Mean: -0.003194
+Std: 0.000007
+Min: -0.003196
+Max: -0.003034
+
+Time: 36000.0 s
+Field: NH4
+Mean: 0.030887
+Std: 0.109765
+Min: 0.000000
+Max: 6.860673
+
+Time: 36000.0 s
+Field: PO4
+Mean: 1553.300875
+Std: 1550.888998
+Min: 0.020710
+Max: 3517.205451
+
+Time: 36000.0 s
+Field: Hg
+Mean: -0.003542
+Std: 0.000008
+Min: -0.003544
+Max: -0.003409
+
+Time: 39600.0 s
+Field: NH4
+Mean: 0.026336
+Std: 0.079372
+Min: 0.000000
+Max: 3.767593
+
+Time: 39600.0 s
+Field: PO4
+Mean: 1724.694868
+Std: 1719.366111
+Min: 0.018241
+Max: 3859.952044
+
+Time: 39600.0 s
+Field: Hg
+Mean: -0.003889
+Std: 0.000008
+Min: -0.003890
+Max: -0.003790
+
+Time: 43200.0 s
+Field: NH4
+Mean: 0.021371
+Std: 0.046159
+Min: 0.000000
+Max: 1.033972
+
+Time: 43200.0 s
+Field: PO4
+Mean: 1895.288844
+Std: 1887.196379
+Min: 0.015891
+Max: 4201.098269
+
+Time: 43200.0 s
+Field: Hg
+Mean: -0.004234
+Std: 0.000008
+Min: -0.004236
+Max: -0.004163
+
+Time: 46800.0 s
+Field: NH4
+Mean: 0.016193
+Std: 0.025741
+Min: -2.960678
+Max: 0.395486
+
+Time: 46800.0 s
+Field: PO4
+Mean: 2065.086392
+Std: 2054.347573
+Min: 0.013675
+Max: 4540.651597
+
+Time: 46800.0 s
+Field: Hg
+Mean: -0.004579
+Std: 0.000007
+Min: -0.004580
+Max: -0.004511
+
+Time: 50400.0 s
+Field: NH4
+Mean: 0.011042
+Std: 0.048032
+Min: -6.137314
+Max: 1.570151
+
+Time: 50400.0 s
+Field: PO4
+Mean: 2234.091199
+Std: 2220.798483
+Min: 0.011607
+Max: 4878.619467
+
+Time: 50400.0 s
+Field: Hg
+Mean: -0.004922
+Std: 0.000006
+Min: -0.004950
+Max: -0.004855
+
+Time: 54000.0 s
+Field: NH4
+Mean: 0.006098
+Std: 0.083137
+Min: -8.895700
+Max: 12.353516
+
+Time: 54000.0 s
+Field: PO4
+Mean: 2402.306959
+Std: 2386.534989
+Min: 0.009701
+Max: 5215.009281
+
+Time: 54000.0 s
+Field: Hg
+Mean: -0.005264
+Std: 0.000005
+Min: -0.005333
+Max: -0.005199
+
+Time: 57600.0 s
+Field: NH4
+Mean: 0.001545
+Std: 0.111577
+Min: -11.047819
+Max: 2.233162
+
+Time: 57600.0 s
+Field: PO4
+Mean: 2569.737364
+Std: 2551.547697
+Min: 0.007972
+Max: 5549.828408
+
+Time: 57600.0 s
+Field: Hg
+Mean: -0.005604
+Std: 0.000004
+Min: -0.005708
+Max: -0.005545
+
+Time: 61200.0 s
+Field: NH4
+Mean: -0.002118
+Std: 0.149890
+Min: -12.447068
+Max: 35.240704
+
+Time: 61200.0 s
+Field: PO4
+Mean: 2736.386084
+Std: 2715.830456
+Min: 0.006433
+Max: 5883.084181
+
+Time: 61200.0 s
+Field: Hg
+Mean: -0.005944
+Std: 0.000003
+Min: -0.006075
+Max: -0.005892
+
+Time: 64800.0 s
+Field: NH4
+Mean: -0.005332
+Std: 0.149792
+Min: -12.998098
+Max: 0.074905
+
+Time: 64800.0 s
+Field: PO4
+Mean: 2902.256776
+Std: 2879.379402
+Min: 0.005092
+Max: 6214.783901
+
+Time: 64800.0 s
+Field: Hg
+Mean: -0.006282
+Std: 0.000002
+Min: -0.006431
+Max: -0.006240
+
+Time: 68400.0 s
+Field: NH4
+Mean: -0.007538
+Std: 0.154992
+Min: -12.663965
+Max: 0.458238
+
+Time: 68400.0 s
+Field: PO4
+Mean: 3067.353073
+Std: 3042.192319
+Min: 0.003953
+Max: 6544.934832
+
+Time: 68400.0 s
+Field: Hg
+Mean: -0.006619
+Std: 0.000002
+Min: -0.006775
+Max: -0.006589
+
+Time: 72000.0 s
+Field: NH4
+Mean: -0.008610
+Std: 0.149520
+Min: -11.466417
+Max: 0.555645
+
+Time: 72000.0 s
+Field: PO4
+Mean: 3231.678591
+Std: 3204.268202
+Min: 0.003010
+Max: 6873.544207
+
+Time: 72000.0 s
+Field: Hg
+Mean: -0.006955
+Std: 0.000003
+Min: -0.007106
+Max: -0.006936
+
+Time: 75600.0 s
+Field: NH4
+Mean: -0.008678
+Std: 0.134360
+Min: -9.487474
+Max: 0.247548
+
+Time: 75600.0 s
+Field: PO4
+Mean: 3395.236922
+Std: 3365.606949
+Min: 0.002250
+Max: 7200.619224
+
+Time: 75600.0 s
+Field: Hg
+Mean: -0.007290
+Std: 0.000004
+Min: -0.007425
+Max: -0.007282
+
+Time: 79200.0 s
+Field: NH4
+Mean: -0.007949
+Std: 0.110677
+Min: -6.862069
+Max: 0.263489
+
+Time: 79200.0 s
+Field: PO4
+Mean: 3558.031640
+Std: 3526.209144
+Min: 0.001656
+Max: 7526.167047
+
+Time: 79200.0 s
+Field: Hg
+Mean: -0.007623
+Std: 0.000004
+Min: -0.007734
+Max: -0.007620
+
+Time: 82800.0 s
+Field: NH4
+Mean: -0.006240
+Std: 0.079937
+Min: -3.769011
+Max: 0.772525
+
+Time: 82800.0 s
+Field: PO4
+Mean: 3720.066299
+Std: 3686.075899
+Min: 0.001201
+Max: 7850.194806
+
+Time: 82800.0 s
+Field: Hg
+Mean: -0.007955
+Std: 0.000005
+Min: -0.008033
+Max: -0.007953
+
+Time: 86400.0 s
+Field: NH4
+Mean: -0.003849
+Std: 0.045951
+Min: -1.041835
+Max: 0.930633
+
+Time: 86400.0 s
+Field: PO4
+Mean: 3881.344436
+Std: 3845.208730
+Min: 0.000862
+Max: 8172.709599
+
+Time: 86400.0 s
+Field: Hg
+Mean: -0.008286
+Std: 0.000005
+Min: -0.008334
+Max: -0.008284
+
+Time: 90000.0 s
+Field: NH4
+Mean: -0.001122
+Std: 0.023915
+Min: -0.981543
+Max: 2.959499
+
+Time: 90000.0 s
+Field: PO4
+Mean: 4041.869571
+Std: 4003.609470
+Min: 0.000613
+Max: 8493.718491
+
+Time: 90000.0 s
+Field: Hg
+Mean: -0.008616
+Std: 0.000004
+Min: -0.008658
+Max: -0.008612
+
+Time: 93600.0 s
+Field: NH4
+Mean: 0.002109
+Std: 0.046060
+Min: -0.247985
+Max: 6.136154
+
+Time: 93600.0 s
+Field: PO4
+Mean: 4201.645209
+Std: 4161.280205
+Min: 0.000433
+Max: 8813.228513
+
+Time: 93600.0 s
+Field: Hg
+Mean: -0.008944
+Std: 0.000004
+Min: -0.008985
+Max: -0.008898
+
+Time: 97200.0 s
+Field: NH4
+Mean: 0.005198
+Std: 0.079933
+Min: -0.206555
+Max: 8.894601
+
+Time: 97200.0 s
+Field: PO4
+Mean: 4360.674842
+Std: 4318.223214
+Min: 0.000304
+Max: 9131.246663
+
+Time: 97200.0 s
+Field: Hg
+Mean: -0.009271
+Std: 0.000003
+Min: -0.009310
+Max: -0.009186
+
+Time: 100800.0 s
+Field: NH4
+Mean: 0.007900
+Std: 0.110128
+Min: -0.060665
+Max: 11.046858
+
+Time: 100800.0 s
+Field: PO4
+Mean: 4518.961944
+Std: 4474.440937
+Min: 0.000213
+Max: 9447.779908
+
+Time: 100800.0 s
+Field: Hg
+Mean: -0.009597
+Std: 0.000002
+Min: -0.009633
+Max: -0.009478
+
+Time: 104400.0 s
+Field: NH4
+Mean: 0.010182
+Std: 0.133855
+Min: -0.209149
+Max: 12.446251
+
+Time: 104400.0 s
+Field: PO4
+Mean: 4676.509979
+Std: 4629.935940
+Min: 0.000149
+Max: 9762.835181
+
+Time: 104400.0 s
+Field: Hg
+Mean: -0.009922
+Std: 0.000002
+Min: -0.009952
+Max: -0.009777
+
+Time: 108000.0 s
+Field: NH4
+Mean: 0.011804
+Std: 0.148806
+Min: -0.010765
+Max: 12.997413
+
+Time: 108000.0 s
+Field: PO4
+Mean: 4833.322394
+Std: 4784.710890
+Min: 0.000103
+Max: 10076.419383
+
+Time: 108000.0 s
+Field: Hg
+Mean: -0.010246
+Std: 0.000002
+Min: -0.010268
+Max: -0.010084
+
+Time: 111600.0 s
+Field: NH4
+Mean: 0.012643
+Std: 0.153856
+Min: -0.010712
+Max: 12.662782
+
+Time: 111600.0 s
+Field: PO4
+Mean: 4989.402619
+Std: 4938.768536
+Min: 0.000072
+Max: 10388.539383
+
+Time: 111600.0 s
+Field: Hg
+Mean: -0.010568
+Std: 0.000003
+Min: -0.010581
+Max: -0.010400
+
+Time: 115200.0 s
+Field: NH4
+Mean: 0.012635
+Std: 0.148633
+Min: -0.010709
+Max: 11.465163
+
+Time: 115200.0 s
+Field: PO4
+Mean: 5144.754072
+Std: 5092.111697
+Min: 0.000050
+Max: 10699.202017
+
+Time: 115200.0 s
+Field: Hg
+Mean: -0.010889
+Std: 0.000004
+Min: -0.010893
+Max: -0.010727
+
+Time: 118800.0 s
+Field: NH4
+Mean: 0.011776
+Std: 0.133517
+Min: -0.010768
+Max: 9.486171
+
+Time: 118800.0 s
+Field: PO4
+Mean: 5299.380153
+Std: 5244.743243
+Min: 0.000035
+Max: 11008.414090
+
+Time: 118800.0 s
+Field: Hg
+Mean: -0.011209
+Std: 0.000005
+Min: -0.011210
+Max: -0.011063
+
+Time: 122400.0 s
+Field: NH4
+Mean: 0.010118
+Std: 0.109638
+Min: -0.010689
+Max: 6.860673
+
+Time: 122400.0 s
+Field: PO4
+Mean: 5453.284250
+Std: 5396.666087
+Min: 0.000024
+Max: 11316.182376
+
+Time: 122400.0 s
+Field: Hg
+Mean: -0.011528
+Std: 0.000006
+Min: -0.011529
+Max: -0.011408
+
+Time: 126000.0 s
+Field: NH4
+Mean: 0.007770
+Std: 0.078934
+Min: -0.010690
+Max: 3.767593
+
+Time: 126000.0 s
+Field: PO4
+Mean: 5606.469733
+Std: 5547.883179
+Min: 0.000017
+Max: 11622.513615
+
+Time: 126000.0 s
+Field: Hg
+Mean: -0.011846
+Std: 0.000006
+Min: -0.011847
+Max: -0.011759
+
+Time: 129600.0 s
+Field: NH4
+Mean: 0.004892
+Std: 0.044848
+Min: -0.011292
+Max: 1.033972
+
+Time: 129600.0 s
+Field: PO4
+Mean: 5758.939955
+Std: 5698.397496
+Min: 0.000012
+Max: 11927.414518
+
+Time: 129600.0 s
+Field: Hg
+Mean: -0.012163
+Std: 0.000006
+Min: -0.012164
+Max: -0.012105
+
+Time: 133200.0 s
+Field: NH4
+Mean: 0.001684
+Std: 0.022276
+Min: -2.960678
+Max: 0.394491
+
+Time: 133200.0 s
+Field: PO4
+Mean: 5910.698257
+Std: 5848.212038
+Min: 0.000008
+Max: 12230.891763
+
+Time: 133200.0 s
+Field: Hg
+Mean: -0.012478
+Std: 0.000006
+Min: -0.012480
+Max: -0.012425
+
+Time: 136800.0 s
+Field: NH4
+Mean: -0.001622
+Std: 0.045768
+Min: -6.137314
+Max: 0.183213
+
+Time: 136800.0 s
+Field: PO4
+Mean: 6061.747963
+Std: 5997.329819
+Min: 0.000006
+Max: 12532.951998
+
+Time: 136800.0 s
+Field: Hg
+Mean: -0.012793
+Std: 0.000005
+Min: -0.012831
+Max: -0.012742
+
+Time: 140400.0 s
+Field: NH4
+Mean: -0.004837
+Std: 0.079896
+Min: -8.895700
+Max: 0.104609
+
+Time: 140400.0 s
+Field: PO4
+Mean: 6212.092380
+Std: 6145.753869
+Min: 0.000004
+Max: 12833.601839
+
+Time: 140400.0 s
+Field: Hg
+Mean: -0.013107
+Std: 0.000004
+Min: -0.013184
+Max: -0.013057
+
+Time: 144000.0 s
+Field: NH4
+Mean: -0.007732
+Std: 0.110551
+Min: -11.047819
+Max: 0.522151
+
+Time: 144000.0 s
+Field: PO4
+Mean: 6361.734803
+Std: 6293.487225
+Min: 0.000003
+Max: 13132.847871
+
+Time: 144000.0 s
+Field: Hg
+Mean: -0.013419
+Std: 0.000003
+Min: -0.013531
+Max: -0.013373
+
+Time: 147600.0 s
+Field: NH4
+Mean: -0.010093
+Std: 0.134282
+Min: -12.447068
+Max: 1.341385
+
+Time: 147600.0 s
+Field: PO4
+Mean: 6510.678508
+Std: 6440.532932
+Min: 0.000002
+Max: 13430.696649
+
+Time: 147600.0 s
+Field: Hg
+Mean: -0.013730
+Std: 0.000002
+Min: -0.013869
+Max: -0.013691
+
+Time: 151200.0 s
+Field: NH4
+Mean: -0.011847
+Std: 0.149199
+Min: -12.998107
+Max: 0.864662
+
+Time: 151200.0 s
+Field: PO4
+Mean: 6658.926758
+Std: 6586.894037
+Min: 0.000001
+Max: 13727.154698
+
+Time: 151200.0 s
+Field: Hg
+Mean: -0.014041
+Std: 0.000002
+Min: -0.014196
+Max: -0.014010
+
+Time: 154800.0 s
+Field: NH4
+Mean: -0.024281
+Std: 1.035763
+Min: -203.060616
+Max: 2.207497
+
+Time: 154800.0 s
+Field: PO4
+Mean: 6806.482801
+Std: 6732.573590
+Min: 0.000001
+Max: 14022.228511
+
+Time: 154800.0 s
+Field: Hg
+Mean: -0.014350
+Std: 0.000003
+Min: -0.014512
+Max: -0.014330
+
+Time: 158400.0 s
+Field: NH4
+Mean: -0.015688
+Std: 0.182359
+Min: -11.466456
+Max: 0.206021
+
+Time: 158400.0 s
+Field: PO4
+Mean: 6953.349868
+Std: 6877.574640
+Min: 0.000001
+Max: 14315.924551
+
+Time: 158400.0 s
+Field: Hg
+Mean: -0.014658
+Std: 0.000003
+Min: -0.014815
+Max: -0.014647
+
+Time: 162000.0 s
+Field: NH4
+Mean: -0.012762
+Std: 0.135234
+Min: -9.487506
+Max: 0.221819
+
+Time: 162000.0 s
+Field: PO4
+Mean: 7099.531176
+Std: 7021.900233
+Min: 0.000000
+Max: 14608.249251
+
+Time: 162000.0 s
+Field: Hg
+Mean: -0.014965
+Std: 0.000004
+Min: -0.015106
+Max: -0.014962
+
+Time: 165600.0 s
+Field: NH4
+Mean: -0.010605
+Std: 0.110302
+Min: -6.862103
+Max: 0.766190
+
+Time: 165600.0 s
+Field: PO4
+Mean: 7245.029928
+Std: 7165.553415
+Min: 0.000000
+Max: 14899.209015
+
+Time: 165600.0 s
+Field: Hg
+Mean: -0.015271
+Std: 0.000005
+Min: -0.015386
+Max: -0.015269
+
+Time: 169200.0 s
+Field: NH4
+Mean: -0.008160
+Std: 0.079715
+Min: -3.769004
+Max: 1.754536
+
+Time: 169200.0 s
+Field: PO4
+Mean: 7389.849310
+Std: 7308.537224
+Min: 0.000000
+Max: 15188.810216
+
+Time: 169200.0 s
+Field: Hg
+Mean: -0.015575
+Std: 0.000005
+Min: -0.015657
+Max: -0.015574
+
+Time: 172800.0 s
+Field: NH4
+Mean: -0.005327
+Std: 0.045866
+Min: -1.040616
+Max: 1.124987
+
+Time: 172800.0 s
+Field: PO4
+Mean: 7533.992494
+Std: 7450.854695
+Min: 0.000000
+Max: 15477.059198
+
+Time: 172800.0 s
+Field: Hg
+Mean: -0.015879
+Std: 0.000005
+Min: -0.015932
+Max: -0.015877
+
+Time: 176400.0 s
+Field: NH4
+Mean: -0.002154
+Std: 0.024272
+Min: -3.027411
+Max: 2.959578
+
+Time: 176400.0 s
+Field: PO4
+Mean: 7677.462638
+Std: 7592.508854
+Min: 0.000000
+Max: 15763.962273
+
+Time: 176400.0 s
+Field: Hg
+Mean: -0.016181
+Std: 0.000005
+Min: -0.016229
+Max: -0.016180
+
+Time: 180000.0 s
+Field: NH4
+Mean: 0.001308
+Std: 0.045765
+Min: -0.497208
+Max: 6.136155
+
+Time: 180000.0 s
+Field: PO4
+Mean: 7820.262885
+Std: 7733.502723
+Min: 0.000000
+Max: 16049.525727
+
+Time: 180000.0 s
+Field: Hg
+Mean: -0.016482
+Std: 0.000004
+Min: -0.016529
+Max: -0.016441
+
+Time: 183600.0 s
+Field: NH4
+Mean: 0.004602
+Std: 0.079693
+Min: -0.796685
+Max: 8.894601
+
+Time: 183600.0 s
+Field: PO4
+Mean: 7962.396362
+Std: 7873.839313
+Min: 0.000000
+Max: 16333.755815
+
+Time: 183600.0 s
+Field: Hg
+Mean: -0.016782
+Std: 0.000004
+Min: -0.016827
+Max: -0.016701
+
+Time: 187200.0 s
+Field: NH4
+Mean: 0.007526
+Std: 0.110166
+Min: -0.197530
+Max: 11.046858
+
+Time: 187200.0 s
+Field: PO4
+Mean: 8103.866182
+Std: 8013.521629
+Min: 0.000000
+Max: 16616.658762
+
+Time: 187200.0 s
+Field: Hg
+Mean: -0.017081
+Std: 0.000003
+Min: -0.017122
+Max: -0.016966
+
+Time: 190800.0 s
+Field: NH4
+Mean: 0.009912
+Std: 0.133875
+Min: -0.047218
+Max: 12.446251
+
+Time: 190800.0 s
+Field: PO4
+Mean: 8244.675445
+Std: 8152.552667
+Min: 0.000000
+Max: 16898.240765
+
+Time: 190800.0 s
+Field: Hg
+Mean: -0.017379
+Std: 0.000002
+Min: -0.017414
+Max: -0.017237
+
+Time: 194400.0 s
+Field: NH4
+Mean: 0.011623
+Std: 0.148820
+Min: -0.056037
+Max: 12.997413
+
+Time: 194400.0 s
+Field: PO4
+Mean: 8384.827235
+Std: 8290.935411
+Min: 0.000000
+Max: 17178.507991
+
+Time: 194400.0 s
+Field: Hg
+Mean: -0.017676
+Std: 0.000002
+Min: -0.017702
+Max: -0.017517
+
+Time: 198000.0 s
+Field: NH4
+Mean: 0.012523
+Std: 0.153865
+Min: -0.021328
+Max: 12.662782
+
+Time: 198000.0 s
+Field: PO4
+Mean: 8524.324621
+Std: 8428.672838
+Min: 0.000000
+Max: 17457.466581
+
+Time: 198000.0 s
+Field: Hg
+Mean: -0.017971
+Std: 0.000003
+Min: -0.017988
+Max: -0.017807
+
+Time: 201600.0 s
+Field: NH4
+Mean: 0.012558
+Std: 0.148638
+Min: -0.018438
+Max: 11.465163
+
+Time: 201600.0 s
+Field: PO4
+Mean: 8663.170660
+Std: 8565.767915
+Min: 0.000000
+Max: 17735.122644
+
+Time: 201600.0 s
+Field: Hg
+Mean: -0.018266
+Std: 0.000004
+Min: -0.018273
+Max: -0.018106
+
+Time: 205200.0 s
+Field: NH4
+Mean: 0.011726
+Std: 0.133520
+Min: -0.011355
+Max: 9.486171
+
+Time: 205200.0 s
+Field: PO4
+Mean: 8801.368392
+Std: 8702.223596
+Min: 0.000000
+Max: 18011.482263
+
+Time: 205200.0 s
+Field: Hg
+Mean: -0.018559
+Std: 0.000005
+Min: -0.018561
+Max: -0.018416
+
+Time: 208800.0 s
+Field: NH4
+Mean: 0.010085
+Std: 0.109641
+Min: -0.010713
+Max: 6.860673
+
+Time: 208800.0 s
+Field: PO4
+Mean: 8938.920844
+Std: 8838.042826
+Min: 0.000000
+Max: 18286.551490
+
+Time: 208800.0 s
+Field: Hg
+Mean: -0.018852
+Std: 0.000005
+Min: -0.018853
+Max: -0.018734
+
+Time: 212400.0 s
+Field: NH4
+Mean: 0.007748
+Std: 0.078936
+Min: -0.010595
+Max: 3.767593
+
+Time: 212400.0 s
+Field: PO4
+Mean: 9075.831030
+Std: 8973.228539
+Min: 0.000000
+Max: 18560.336350
+
+Time: 212400.0 s
+Field: Hg
+Mean: -0.019143
+Std: 0.000006
+Min: -0.019145
+Max: -0.019059
+
+Time: 216000.0 s
+Field: NH4
+Mean: 0.004878
+Std: 0.044850
+Min: -0.010497
+Max: 1.033972
+
+Time: 216000.0 s
+Field: PO4
+Mean: 9212.101949
+Std: 9107.783659
+Min: 0.000000
+Max: 18832.842841
+
+Time: 216000.0 s
+Field: Hg
+Mean: -0.019434
+Std: 0.000006
+Min: -0.019435
+Max: -0.019379
+
+Time: 219600.0 s
+Field: NH4
+Mean: 0.001675
+Std: 0.022277
+Min: -2.960678
+Max: 0.394491
+
+Time: 219600.0 s
+Field: PO4
+Mean: 9347.736585
+Std: 9241.711098
+Min: 0.000000
+Max: 19104.076932
+
+Time: 219600.0 s
+Field: Hg
+Mean: -0.019724
+Std: 0.000005
+Min: -0.019725
+Max: -0.019673
+
+Time: 223200.0 s
+Field: NH4
+Mean: -0.001625
+Std: 0.045771
+Min: -6.137314
+Max: 0.465592
+
+Time: 223200.0 s
+Field: PO4
+Mean: 9482.737909
+Std: 9375.013754
+Min: 0.000000
+Max: 19374.044564
+
+Time: 223200.0 s
+Field: Hg
+Mean: -0.020012
+Std: 0.000005
+Min: -0.020052
+Max: -0.019963
+
+Time: 226800.0 s
+Field: NH4
+Mean: -0.004685
+Std: 0.080666
+Min: -8.895700
+Max: 7.503502
+
+Time: 226800.0 s
+Field: PO4
+Mean: 9617.108878
+Std: 9507.694518
+Min: 0.000000
+Max: 19642.751650
+
+Time: 226800.0 s
+Field: Hg
+Mean: -0.020300
+Std: 0.000004
+Min: -0.020379
+Max: -0.020253
+
+Time: 230400.0 s
+Field: NH4
+Mean: -0.007683
+Std: 0.113487
+Min: -11.047819
+Max: 17.587306
+
+Time: 230400.0 s
+Field: PO4
+Mean: 9750.852437
+Std: 9639.756265
+Min: 0.000000
+Max: 19910.204076
+
+Time: 230400.0 s
+Field: Hg
+Mean: -0.020586
+Std: 0.000003
+Min: -0.020700
+Max: -0.020543
+
+Time: 234000.0 s
+Field: NH4
+Mean: -0.010113
+Std: 0.134248
+Min: -12.447068
+Max: 1.023746
+
+Time: 234000.0 s
+Field: PO4
+Mean: 9883.971513
+Std: 9771.201863
+Min: 0.000000
+Max: 20176.407701
+
+Time: 234000.0 s
+Field: Hg
+Mean: -0.020872
+Std: 0.000002
+Min: -0.021012
+Max: -0.020835
+
+Time: 237600.0 s
+Field: NH4
+Mean: -0.011843
+Std: 0.149181
+Min: -12.998069
+Max: 0.091683
+
+Time: 237600.0 s
+Field: PO4
+Mean: 10016.469024
+Std: 9902.034164
+Min: 0.000000
+Max: 20441.368355
+
+Time: 237600.0 s
+Field: Hg
+Mean: -0.021157
+Std: 0.000002
+Min: -0.021314
+Max: -0.021128
+
+Time: 241200.0 s
+Field: NH4
+Mean: -0.012709
+Std: 0.154602
+Min: -12.663983
+Max: 2.422435
+
+Time: 241200.0 s
+Field: PO4
+Mean: 10148.347871
+Std: 10032.256010
+Min: 0.000000
+Max: 20705.091842
+
+Time: 241200.0 s
+Field: Hg
+Mean: -0.021440
+Std: 0.000003
+Min: -0.021603
+Max: -0.021422
+
+Time: 244800.0 s
+Field: NH4
+Mean: -0.012814
+Std: 0.149116
+Min: -11.466460
+Max: 0.110296
+
+Time: 244800.0 s
+Field: PO4
+Mean: 10279.610942
+Std: 10161.870230
+Min: 0.000000
+Max: 20967.583939
+
+Time: 244800.0 s
+Field: Hg
+Mean: -0.021723
+Std: 0.000004
+Min: -0.021881
+Max: -0.021714
+
+Time: 248400.0 s
+Field: NH4
+Mean: -0.012003
+Std: 0.134043
+Min: -9.487513
+Max: 0.269596
+
+Time: 248400.0 s
+Field: PO4
+Mean: 10410.261115
+Std: 10290.879644
+Min: 0.000000
+Max: 21228.850395
+
+Time: 248400.0 s
+Field: Hg
+Mean: -0.022004
+Std: 0.000004
+Min: -0.022147
+Max: -0.022002
+
+Time: 252000.0 s
+Field: NH4
+Mean: -0.010357
+Std: 0.110246
+Min: -6.862109
+Max: 1.031436
+
+Time: 252000.0 s
+Field: PO4
+Mean: 10540.301249
+Std: 10419.287056
+Min: 0.000000
+Max: 21488.896934
+
+Time: 252000.0 s
+Field: Hg
+Mean: -0.022285
+Std: 0.000005
+Min: -0.022402
+Max: -0.022283
+
+Time: 255600.0 s
+Field: NH4
+Mean: -0.008047
+Std: 0.079640
+Min: -3.769742
+Max: 0.622567
+
+Time: 255600.0 s
+Field: PO4
+Mean: 10669.734193
+Std: 10547.095260
+Min: 0.000000
+Max: 21747.729251
+
+Time: 255600.0 s
+Field: Hg
+Mean: -0.022564
+Std: 0.000005
+Min: -0.022647
+Max: -0.022563
+
+Time: 259200.0 s
+Field: NH4
+Mean: -0.005080
+Std: 0.046212
+Min: -2.584953
+Max: 1.259263
+
+Time: 259200.0 s
+Field: PO4
+Mean: 10798.562783
+Std: 10674.307039
+Min: 0.000000
+Max: 22005.353015
+
+Time: 259200.0 s
+Field: Hg
+Mean: -0.022843
+Std: 0.000005
+Min: -0.022897
+Max: -0.022841
+
+Time: 262800.0 s
+Field: NH4
+Mean: -0.001931
+Std: 0.023082
+Min: -0.445934
+Max: 2.959581
+
+Time: 262800.0 s
+Field: PO4
+Mean: 10926.789841
+Std: 10800.925161
+Min: 0.000000
+Max: 22261.773871
+
+Time: 262800.0 s
+Field: Hg
+Mean: -0.023120
+Std: 0.000005
+Min: -0.023169
+Max: -0.023119
+
+Time: 266400.0 s
+Field: NH4
+Mean: 0.001408
+Std: 0.045782
+Min: -1.656085
+Max: 6.136155
+
+Time: 266400.0 s
+Field: PO4
+Mean: 11054.418175
+Std: 10926.952385
+Min: 0.000000
+Max: 22516.997434
+
+Time: 266400.0 s
+Field: Hg
+Mean: -0.023396
+Std: 0.000005
+Min: -0.023444
+Max: -0.023355
+
+Time: 270000.0 s
+Field: NH4
+Mean: 0.004635
+Std: 0.079601
+Min: -0.214487
+Max: 8.894601
+
+Time: 270000.0 s
+Field: PO4
+Mean: 11181.450580
+Std: 11052.391456
+Min: 0.000000
+Max: 22771.029295
+
+Time: 270000.0 s
+Field: Hg
+Mean: -0.023671
+Std: 0.000004
+Min: -0.023717
+Max: -0.023591
+
+Time: 273600.0 s
+Field: NH4
+Mean: 0.007539
+Std: 0.110152
+Min: -0.038418
+Max: 11.046858
+
+Time: 273600.0 s
+Field: PO4
+Mean: 11307.889840
+Std: 11177.245107
+Min: 0.000000
+Max: 23023.875019
+
+Time: 273600.0 s
+Field: Hg
+Mean: -0.023945
+Std: 0.000003
+Min: -0.023988
+Max: -0.023831
+
+Time: 277200.0 s
+Field: NH4
+Mean: 0.009935
+Std: 0.133872
+Min: -0.034872
+Max: 12.446251
+
+Time: 277200.0 s
+Field: PO4
+Mean: 11433.738723
+Std: 11301.516060
+Min: 0.000000
+Max: 23275.540143
+
+Time: 277200.0 s
+Field: Hg
+Mean: -0.024218
+Std: 0.000002
+Min: -0.024255
+Max: -0.024077
+
+Time: 280800.0 s
+Field: NH4
+Mean: 0.011642
+Std: 0.148818
+Min: -0.011823
+Max: 12.997413
+
+Time: 280800.0 s
+Field: PO4
+Mean: 11558.999987
+Std: 11425.207024
+Min: 0.000000
+Max: 23526.030180
+
+Time: 280800.0 s
+Field: Hg
+Mean: -0.024491
+Std: 0.000002
+Min: -0.024518
+Max: -0.024333
+
+Time: 284400.0 s
+Field: NH4
+Mean: 0.012536
+Std: 0.153865
+Min: -0.010713
+Max: 12.662782
+
+Time: 284400.0 s
+Field: PO4
+Mean: 11683.676375
+Std: 11548.320697
+Min: 0.000000
+Max: 23775.350618
+
+Time: 284400.0 s
+Field: Hg
+Mean: -0.024762
+Std: 0.000003
+Min: -0.024779
+Max: -0.024598
+
+Time: 288000.0 s
+Field: NH4
+Mean: 0.012564
+Std: 0.148639
+Min: -0.010708
+Max: 11.465163
+
+Time: 288000.0 s
+Field: PO4
+Mean: 11807.770618
+Std: 11670.859763
+Min: 0.000000
+Max: 24023.506917
+
+Time: 288000.0 s
+Field: Hg
+Mean: -0.025032
+Std: 0.000004
+Min: -0.025040
+Max: -0.024873
+
+Time: 291600.0 s
+Field: NH4
+Mean: 0.011728
+Std: 0.133521
+Min: -0.010766
+Max: 9.486171
+
+Time: 291600.0 s
+Field: PO4
+Mean: 11931.285434
+Std: 11792.826896
+Min: 0.000000
+Max: 24270.504512
+
+Time: 291600.0 s
+Field: Hg
+Mean: -0.025301
+Std: 0.000005
+Min: -0.025303
+Max: -0.025158
+
+Time: 295200.0 s
+Field: NH4
+Mean: 0.010085
+Std: 0.109641
+Min: -0.010846
+Max: 6.860673
+
+Time: 295200.0 s
+Field: PO4
+Mean: 12054.223529
+Std: 11914.224758
+Min: 0.000000
+Max: 24516.348815
+
+Time: 295200.0 s
+Field: Hg
+Mean: -0.025569
+Std: 0.000005
+Min: -0.025571
+Max: -0.025452
+
+Time: 298800.0 s
+Field: NH4
+Mean: 0.007748
+Std: 0.078936
+Min: -0.010568
+Max: 3.767593
+
+Time: 298800.0 s
+Field: PO4
+Mean: 12176.587596
+Std: 12035.055997
+Min: 0.000000
+Max: 24761.045209
+
+Time: 298800.0 s
+Field: Hg
+Mean: -0.025837
+Std: 0.000006
+Min: -0.025838
+Max: -0.025753
+
+Time: 302400.0 s
+Field: NH4
+Mean: 0.004878
+Std: 0.044850
+Min: -0.010723
+Max: 1.033972
+
+Time: 302400.0 s
+Field: PO4
+Mean: 12298.380315
+Std: 12155.323251
+Min: 0.000000
+Max: 25004.599056
+
+Time: 302400.0 s
+Field: Hg
+Mean: -0.026103
+Std: 0.000006
+Min: -0.026104
+Max: -0.026049
+
+Time: 306000.0 s
+Field: NH4
+Mean: 0.001675
+Std: 0.022277
+Min: -2.960678
+Max: 0.394491
+
+Time: 306000.0 s
+Field: PO4
+Mean: 12419.604353
+Std: 12275.029145
+Min: 0.000000
+Max: 25247.015689
+
+Time: 306000.0 s
+Field: Hg
+Mean: -0.026369
+Std: 0.000005
+Min: -0.026370
+Max: -0.026319
+
+Time: 309600.0 s
+Field: NH4
+Mean: -0.001629
+Std: 0.045832
+Min: -6.137314
+Max: 0.805798
+
+Time: 309600.0 s
+Field: PO4
+Mean: 12540.262366
+Std: 12394.176293
+Min: 0.000000
+Max: 25488.300419
+
+Time: 309600.0 s
+Field: Hg
+Mean: -0.026633
+Std: 0.000005
+Min: -0.026674
+Max: -0.026585
+
+Time: 313200.0 s
+Field: NH4
+Mean: -0.004940
+Std: 0.079952
+Min: -8.895700
+Max: 0.090301
+
+Time: 313200.0 s
+Field: PO4
+Mean: 12660.356997
+Std: 12512.767297
+Min: 0.000000
+Max: 25728.458531
+
+Time: 313200.0 s
+Field: Hg
+Mean: -0.026897
+Std: 0.000004
+Min: -0.026977
+Max: -0.026851
+
+Time: 316800.0 s
+Field: NH4
+Mean: -0.007758
+Std: 0.110534
+Min: -11.047819
+Max: 0.775319
+
+Time: 316800.0 s
+Field: PO4
+Mean: 12779.890876
+Std: 12630.804747
+Min: 0.000000
+Max: 25967.495286
+
+Time: 316800.0 s
+Field: Hg
+Mean: -0.027160
+Std: 0.000003
+Min: -0.027274
+Max: -0.027117
+
+Time: 320400.0 s
+Field: NH4
+Mean: -0.010070
+Std: 0.134236
+Min: -12.447068
+Max: 0.729975
+
+Time: 320400.0 s
+Field: PO4
+Mean: 12898.866623
+Std: 12748.291221
+Min: 0.000000
+Max: 26205.415918
+
+Time: 320400.0 s
+Field: Hg
+Mean: -0.027422
+Std: 0.000002
+Min: -0.027563
+Max: -0.027385
+
+Time: 324000.0 s
+Field: NH4
+Mean: -0.011848
+Std: 0.149192
+Min: -12.998080
+Max: 0.758269
+
+Time: 324000.0 s
+Field: PO4
+Mean: 13017.286842
+Std: 12865.229285
+Min: 0.000000
+Max: 26442.225640
+
+Time: 324000.0 s
+Field: Hg
+Mean: -0.027683
+Std: 0.000002
+Min: -0.027841
+Max: -0.027655
+
+Time: 327600.0 s
+Field: NH4
+Mean: -0.012768
+Std: 0.154266
+Min: -12.663929
+Max: 0.284760
+
+Time: 327600.0 s
+Field: PO4
+Mean: 13135.154127
+Std: 12981.621494
+Min: 0.000000
+Max: 26677.929639
+
+Time: 327600.0 s
+Field: Hg
+Mean: -0.027943
+Std: 0.000003
+Min: -0.028107
+Max: -0.027925
+
+Time: 331200.0 s
+Field: NH4
+Mean: -0.012659
+Std: 0.154626
+Min: -11.466404
+Max: 20.619156
+
+Time: 331200.0 s
+Field: PO4
+Mean: 13252.471062
+Std: 13097.470391
+Min: 0.000000
+Max: 26912.533078
+
+Time: 331200.0 s
+Field: Hg
+Mean: -0.028203
+Std: 0.000004
+Min: -0.028361
+Max: -0.028194
+
+Time: 334800.0 s
+Field: NH4
+Mean: -0.011987
+Std: 0.134045
+Min: -9.487464
+Max: 0.094531
+
+Time: 334800.0 s
+Field: PO4
+Mean: 13369.240214
+Std: 13212.778508
+Min: 0.000000
+Max: 27146.041095
+
+Time: 334800.0 s
+Field: Hg
+Mean: -0.028461
+Std: 0.000005
+Min: -0.028603
+Max: -0.028459
+
+Time: 338400.0 s
+Field: NH4
+Mean: -0.010399
+Std: 0.110212
+Min: -6.862060
+Max: 0.140518
+
+Time: 338400.0 s
+Field: PO4
+Mean: 13485.464142
+Std: 13327.548364
+Min: 0.000000
+Max: 27378.458806
+
+Time: 338400.0 s
+Field: Hg
+Mean: -0.028718
+Std: 0.000005
+Min: -0.028835
+Max: -0.028716
+
+Time: 342000.0 s
+Field: NH4
+Mean: -0.007959
+Std: 0.080117
+Min: -3.769002
+Max: 1.042323
+
+Time: 342000.0 s
+Field: PO4
+Mean: 13601.145392
+Std: 13441.782469
+Min: 0.000000
+Max: 27609.791300
+
+Time: 342000.0 s
+Field: Hg
+Mean: -0.028974
+Std: 0.000005
+Min: -0.029058
+Max: -0.028973
+
+Time: 345600.0 s
+Field: NH4
+Mean: -0.005182
+Std: 0.045758
+Min: -1.038715
+Max: 0.811214
+
+Time: 345600.0 s
+Field: PO4
+Mean: 13716.286498
+Std: 13555.483318
+Min: 0.000000
+Max: 27840.043646
+
+Time: 345600.0 s
+Field: Hg
+Mean: -0.029230
+Std: 0.000005
+Min: -0.029284
+Max: -0.029228
+
+Time: 349200.0 s
+Field: NH4
+Mean: -0.001607
+Std: 0.025163
+Min: -0.534399
+Max: 2.959547
+
+Time: 349200.0 s
+Field: PO4
+Mean: 13830.889981
+Std: 13668.653397
+Min: 0.000000
+Max: 28069.220887
+
+Time: 349200.0 s
+Field: Hg
+Mean: -0.029484
+Std: 0.000005
+Min: -0.029534
+Max: -0.029483
+
+Time: 352800.0 s
+Field: NH4
+Mean: 0.001515
+Std: 0.045721
+Min: -0.304935
+Max: 6.136155
+
+Time: 352800.0 s
+Field: PO4
+Mean: 13944.958352
+Std: 13781.295180
+Min: 0.000000
+Max: 28297.328042
+
+Time: 352800.0 s
+Field: Hg
+Mean: -0.029737
+Std: 0.000005
+Min: -0.029785
+Max: -0.029697
+
+Time: 356400.0 s
+Field: NH4
+Mean: 0.004662
+Std: 0.079601
+Min: -0.147309
+Max: 8.894601
+
+Time: 356400.0 s
+Field: PO4
+Mean: 14058.494110
+Std: 13893.411131
+Min: 0.000000
+Max: 28524.370109
+
+Time: 356400.0 s
+Field: Hg
+Mean: -0.029990
+Std: 0.000004
+Min: -0.030036
+Max: -0.029909
+
+Time: 360000.0 s
+Field: NH4
+Mean: 0.007537
+Std: 0.110151
+Min: -0.095921
+Max: 11.046858
+
+Time: 360000.0 s
+Field: PO4
+Mean: 14171.499741
+Std: 14005.003699
+Min: 0.000000
+Max: 28750.352060
+
+Time: 360000.0 s
+Field: Hg
+Mean: -0.030241
+Std: 0.000003
+Min: -0.030284
+Max: -0.030127
+
+Time: 363600.0 s
+Field: NH4
+Mean: 0.009935
+Std: 0.133872
+Min: -0.054111
+Max: 12.446251
+
+Time: 363600.0 s
+Field: PO4
+Mean: 14283.977721
+Std: 14116.075325
+Min: 0.000000
+Max: 28975.278845
+
+Time: 363600.0 s
+Field: Hg
+Mean: -0.030492
+Std: 0.000002
+Min: -0.030528
+Max: -0.030351
+
+Time: 367200.0 s
+Field: NH4
+Mean: 0.011643
+Std: 0.148818
+Min: -0.011680
+Max: 12.997413
+
+Time: 367200.0 s
+Field: PO4
+Mean: 14395.930514
+Std: 14226.628439
+Min: 0.000000
+Max: 29199.155392
+
+Time: 367200.0 s
+Field: Hg
+Mean: -0.030741
+Std: 0.000002
+Min: -0.030769
+Max: -0.030583
+
+Time: 370800.0 s
+Field: NH4
+Mean: 0.012536
+Std: 0.153865
+Min: -0.010912
+Max: 12.662782
+
+Time: 370800.0 s
+Field: PO4
+Mean: 14507.360571
+Std: 14336.665456
+Min: 0.000000
+Max: 29421.986603
+
+Time: 370800.0 s
+Field: Hg
+Mean: -0.030990
+Std: 0.000003
+Min: -0.031008
+Max: -0.030826
+
+Time: 374400.0 s
+Field: NH4
+Mean: 0.012564
+Std: 0.148639
+Min: -0.010995
+Max: 11.465163
+
+Time: 374400.0 s
+Field: PO4
+Mean: 14618.270333
+Std: 14446.188785
+Min: 0.000000
+Max: 29643.777361
+
+Time: 374400.0 s
+Field: Hg
+Mean: -0.031238
+Std: 0.000004
+Min: -0.031246
+Max: -0.031079
+
+Time: 378000.0 s
+Field: NH4
+Mean: 0.011728
+Std: 0.133521
+Min: -0.011079
+Max: 9.486171
+
+Time: 378000.0 s
+Field: PO4
+Mean: 14728.662231
+Std: 14555.200820
+Min: 0.000000
+Max: 29864.532522
+
+Time: 378000.0 s
+Field: Hg
+Mean: -0.031484
+Std: 0.000005
+Min: -0.031486
+Max: -0.031342
+
+Time: 381600.0 s
+Field: NH4
+Mean: 0.010085
+Std: 0.109641
+Min: -0.011465
+Max: 6.860673
+
+Time: 381600.0 s
+Field: PO4
+Mean: 14838.538681
+Std: 14663.703945
+Min: 0.000000
+Max: 30084.256923
+
+Time: 381600.0 s
+Field: Hg
+Mean: -0.031731
+Std: 0.000005
+Min: -0.031732
+Max: -0.031613
+
+Time: 385200.0 s
+Field: NH4
+Mean: 0.007748
+Std: 0.078936
+Min: -0.010541
+Max: 3.767593
+
+Time: 385200.0 s
+Field: PO4
+Mean: 14947.902091
+Std: 14771.700534
+Min: 0.000000
+Max: 30302.955377
+
+Time: 385200.0 s
+Field: Hg
+Mean: -0.031976
+Std: 0.000006
+Min: -0.031977
+Max: -0.031892
+
+Time: 388800.0 s
+Field: NH4
+Mean: 0.004878
+Std: 0.044850
+Min: -0.010699
+Max: 1.033972
+
+Time: 388800.0 s
+Field: PO4
+Mean: 15056.754856
+Std: 14879.192950
+Min: 0.000000
+Max: 30520.632673
+
+Time: 388800.0 s
+Field: Hg
+Mean: -0.032220
+Std: 0.000006
+Min: -0.032221
+Max: -0.032166
+
+Time: 392400.0 s
+Field: NH4
+Mean: 0.001675
+Std: 0.022277
+Min: -2.960678
+Max: 0.394491
+
+Time: 392400.0 s
+Field: PO4
+Mean: 15165.099361
+Std: 14986.183543
+Min: 0.000000
+Max: 30737.293580
+
+Time: 392400.0 s
+Field: Hg
+Mean: -0.032464
+Std: 0.000005
+Min: -0.032465
+Max: -0.032414
+
+Time: 396000.0 s
+Field: NH4
+Mean: -0.001629
+Std: 0.045783
+Min: -6.137314
+Max: 0.209572
+
+Time: 396000.0 s
+Field: PO4
+Mean: 15272.937979
+Std: 15092.674654
+Min: 0.000000
+Max: 30952.942844
+
+Time: 396000.0 s
+Field: Hg
+Mean: -0.032707
+Std: 0.000005
+Min: -0.032747
+Max: -0.032659
+
+Time: 399600.0 s
+Field: NH4
+Mean: -0.004836
+Std: 0.079890
+Min: -8.895700
+Max: 0.275404
+
+Time: 399600.0 s
+Field: PO4
+Mean: 15380.273071
+Std: 15198.668612
+Min: 0.000000
+Max: 31167.585187
+
+Time: 399600.0 s
+Field: Hg
+Mean: -0.032949
+Std: 0.000004
+Min: -0.033029
+Max: -0.032902
+
+Time: 403200.0 s
+Field: NH4
+Mean: -0.007992
+Std: 0.111046
+Min: -11.047819
+Max: 0.194817
+
+Time: 403200.0 s
+Field: PO4
+Mean: 15487.106989
+Std: 15304.167738
+Min: 0.000000
+Max: 31381.225313
+
+Time: 403200.0 s
+Field: Hg
+Mean: -0.033190
+Std: 0.000003
+Min: -0.033304
+Max: -0.033147
+
+Time: 406800.0 s
+Field: NH4
+Mean: -0.010188
+Std: 0.134240
+Min: -12.447068
+Max: 0.099743
+
+Time: 406800.0 s
+Field: PO4
+Mean: 15593.442073
+Std: 15409.174338
+Min: 0.000000
+Max: 31593.867900
+
+Time: 406800.0 s
+Field: Hg
+Mean: -0.033430
+Std: 0.000002
+Min: -0.033571
+Max: -0.033393
+
+Time: 410400.0 s
+Field: NH4
+Mean: -0.011862
+Std: 0.149188
+Min: -12.998110
+Max: 0.194144
+
+Time: 410400.0 s
+Field: PO4
+Mean: 15699.280652
+Std: 15513.690710
+Min: 0.000000
+Max: 31805.517606
+
+Time: 410400.0 s
+Field: Hg
+Mean: -0.033669
+Std: 0.000002
+Min: -0.033827
+Max: -0.033641
+
+Time: 414000.0 s
+Field: NH4
+Mean: -0.012781
+Std: 0.154193
+Min: -12.664000
+Max: 0.166329
+
+Time: 414000.0 s
+Field: PO4
+Mean: 15804.625045
+Std: 15617.719141
+Min: 0.000000
+Max: 32016.179067
+
+Time: 414000.0 s
+Field: Hg
+Mean: -0.033908
+Std: 0.000003
+Min: -0.034072
+Max: -0.033890
+
+Time: 417600.0 s
+Field: NH4
+Mean: -0.012789
+Std: 0.149118
+Min: -11.466418
+Max: 0.543513
+
+Time: 417600.0 s
+Field: PO4
+Mean: 15909.477558
+Std: 15721.261908
+Min: 0.000000
+Max: 32225.856898
+
+Time: 417600.0 s
+Field: Hg
+Mean: -0.034146
+Std: 0.000004
+Min: -0.034305
+Max: -0.034137
+
+Time: 421200.0 s
+Field: NH4
+Mean: -0.012391
+Std: 0.136098
+Min: -9.487475
+Max: 0.274761
+
+Time: 421200.0 s
+Field: PO4
+Mean: 16013.840490
+Std: 15824.321276
+Min: 0.000000
+Max: 32434.555691
+
+Time: 421200.0 s
+Field: Hg
+Mean: -0.034383
+Std: 0.000005
+Min: -0.034526
+Max: -0.034381
+
+Time: 424800.0 s
+Field: NH4
+Mean: -0.010470
+Std: 0.110233
+Min: -6.862069
+Max: 0.099987
+
+Time: 424800.0 s
+Field: PO4
+Mean: 16117.716125
+Std: 15926.899500
+Min: 0.000000
+Max: 32642.280017
+
+Time: 424800.0 s
+Field: Hg
+Mean: -0.034619
+Std: 0.000005
+Min: -0.034736
+Max: -0.034617
+
+Time: 428400.0 s
+Field: NH4
+Mean: -0.008130
+Std: 0.079635
+Min: -3.769029
+Max: 1.172518
+
+Time: 428400.0 s
+Field: PO4
+Mean: 16221.106739
+Std: 16028.998825
+Min: 0.000000
+Max: 32849.034428
+
+Time: 428400.0 s
+Field: Hg
+Mean: -0.034854
+Std: 0.000005
+Min: -0.034937
+Max: -0.034852
+
+Time: 432000.0 s
+Field: NH4
+Mean: -0.005298
+Std: 0.045835
+Min: -1.042717
+Max: 0.115153
+
+Time: 432000.0 s
+Field: PO4
+Mean: 16324.014596
+Std: 16130.621485
+Min: 0.000000
+Max: 33054.823450
+
+Time: 432000.0 s
+Field: Hg
+Mean: -0.035088
+Std: 0.000005
+Min: -0.035142
+Max: -0.035087
+
+Time: 435600.0 s
+Field: NH4
+Mean: -0.002168
+Std: 0.023452
+Min: -0.866596
+Max: 2.959558
+
+Time: 435600.0 s
+Field: PO4
+Mean: 16426.441951
+Std: 16231.769704
+Min: 0.000000
+Max: 33259.651593
+
+Time: 435600.0 s
+Field: Hg
+Mean: -0.035321
+Std: 0.000005
+Min: -0.035371
+Max: -0.035320
+
+Time: 439200.0 s
+Field: NH4
+Mean: 0.001258
+Std: 0.045771
+Min: -0.655935
+Max: 6.136153
+
+Time: 439200.0 s
+Field: PO4
+Mean: 16528.391048
+Std: 16332.445696
+Min: 0.000000
+Max: 33463.523343
+
+Time: 439200.0 s
+Field: Hg
+Mean: -0.035554
+Std: 0.000005
+Min: -0.035602
+Max: -0.035513
+
+Time: 442800.0 s
+Field: NH4
+Mean: 0.004531
+Std: 0.079638
+Min: -0.332012
+Max: 8.894601
+
+Time: 442800.0 s
+Field: PO4
+Mean: 16629.864119
+Std: 16432.651663
+Min: 0.000000
+Max: 33666.443165
+
+Time: 442800.0 s
+Field: Hg
+Mean: -0.035785
+Std: 0.000004
+Min: -0.035831
+Max: -0.035705
+
+Time: 446400.0 s
+Field: NH4
+Mean: 0.007565
+Std: 0.110306
+Min: -0.136155
+Max: 11.046858
+
+Time: 446400.0 s
+Field: PO4
+Mean: 16730.863387
+Std: 16532.389800
+Min: 0.000000
+Max: 33868.415504
+
+Time: 446400.0 s
+Field: Hg
+Mean: -0.036016
+Std: 0.000003
+Min: -0.036058
+Max: -0.035901
+
+Time: 3600.0 s
+Field: NH4
+Mean: 0.073536
+Std: 0.035885
+Min: 0.000000
+Max: 2.967261
+
+Time: 3600.0 s
+Field: PO4
+Mean: 42.229114
+Std: 81.798982
+Min: 0.046790
+Max: 359.219073
+
+Time: 3600.0 s
+Field: Hg
+Mean: 0.000001
+Std: 0.000000
+Min: 0.000001
+Max: 0.000001
+

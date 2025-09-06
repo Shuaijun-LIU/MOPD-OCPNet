@@ -5,3 +5,7 @@ Thumbs.db
 *.csv
 *.nc
 *.tif
+*.ref
+ref/
+**/ref/
+*.parquet
