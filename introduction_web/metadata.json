@@ -1,19 +1,22 @@
 {
   "dataset": {
-    "title": "Combined Ocean Environment Dataset",
+    "title": "OceanEnv: A Holistic Simulation Environment for Marine Robotics",
     "version": "1.0.0",
-    "created": "2024-03-07",
-    "updated": "2024-03-07",
+    "created": "2025-03-07",
+    "updated": "2025-03-07",
     "license": "CC BY 4.0",
-    "description": "A unified dataset combining high-resolution bathymetry and ocean current data",
+    "description": "A modular and scalable framework that unifies large-scale ocean data with advanced simulation tools for marine robotics training",
     "keywords": [
-      "oceanography",
+      "marine robotics",
+      "simulation environment",
+      "ocean data",
       "bathymetry",
       "ocean currents",
-      "marine environment",
+      "pollution modeling",
       "GEBCO",
       "Copernicus",
-      "GCPAF"
+      "GCPAF",
+      "robotics training"
     ],
     "temporal_coverage": {
       "start": "2023-01-01",
@@ -40,12 +43,12 @@
   ],
   "sources": [
     {
-      "name": "GEBCO 2024 Grid",
+      "name": "GEBCO 2025 Grid",
       "description": "Global terrain model for ocean and land",
       "url": "https://www.gebco.net/data_and_products/gridded_bathymetry_data/",
       "doi": "10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f",
-      "version": "2024",
-      "citation": "GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f"
+      "version": "2025",
+      "citation": "GEBCO Compilation Group (2025). GEBCO 2025 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f"
     },
     {
       "name": "Global Ocean Physics Analysis and Forecast",
@@ -53,7 +56,7 @@
       "url": "https://marine.copernicus.eu/",
       "doi": "https://doi.org/10.48670/moi-00016",
       "version": "2023",
-      "citation": "E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016"
+      "citation": "E.U. Copernicus Marine Service Information (2025). Global Ocean Physics Analysis and Forecast (GCPAF). doi:https://doi.org/10.48670/moi-00016"
     }
   ],
   "variables": {
@@ -62,7 +65,7 @@
         "name": "elevation",
         "description": "Elevation/depth relative to mean sea level",
         "units": "meters",
-        "source": "GEBCO 2024"
+        "source": "GEBCO 2025"
       }
     ],
     "ocean_physics": [
@@ -162,7 +165,7 @@
     "steps": [
       {
         "name": "Terrain Data Processing",
-        "description": "Extraction, filtering, and conversion of GEBCO 2024 data"
+        "description": "Extraction, filtering, and conversion of GEBCO 2025 data"
       },
       {
         "name": "Ocean Current Data Processing",
@@ -227,7 +230,7 @@
     }
   },
   "citation": {
-    "text": "Author, A., et al. (2024). Combined Ocean Environment Dataset [Data set]. Retrieved from https://example.com/dataset",
+    "text": "Author, A., et al. (2025). OceanEnv: A Holistic Simulation Environment for Marine Robotics [Data set]. Retrieved from https://example.com/dataset",
     "doi": "10.xxxx/xxxxx"
   }
 }

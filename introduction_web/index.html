@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined Ocean Environment Dataset</title>
+    <title>OceanEnv: A Holistic Simulation Environment for Marine Robotics</title>
     <link rel="stylesheet" href="styles/main.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
 </head>
-<body>
+<body class="home-page">
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Dataset Logo">
-                <h1>Combined Ocean Environment Dataset</h1>
+                <img src="images/logo.png" alt="OceanEnv Logo" width="40" height="40">
+                <h1>OceanEnv</h1>
             </div>
             <nav>
                 <ul>
@@ -22,6 +25,9 @@
                     <li><a href="visualization.html">Visualizations</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                    <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                    <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,10 +35,13 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Comprehensive Ocean Environment Data</h2>
-            <p>A unified dataset combining high-resolution bathymetry and ocean current data</p>
+            <h2>A Holistic Simulation Environment for Marine Robotics</h2>
+            <p>OceanEnv unifies large-scale ocean data with advanced simulation tools for marine robotics training</p>
             <div class="cta-buttons">
-                <a href="#download" class="btn primary">Download Dataset</a>
+                <a href="#download" class="btn secondary">Download Dataset</a>
+                <a href="custom-dataset.html" class="btn secondary">Generate Custom Dataset</a>
+                <a href="robot-simulation.html" class="btn secondary">Try Robot Simulation</a>
+                <a href="pollution-simulation.html" class="btn secondary">Pollution Simulation</a>
                 <a href="documentation.html" class="btn secondary">View Documentation</a>
             </div>
         </div>
@@ -40,27 +49,27 @@
 
     <section class="features">
         <div class="container">
-            <h2>Dataset Features</h2>
+            <h2>Framework Features</h2>
             <div class="feature-grid">
                 <div class="feature-card">
                     <i class="fas fa-mountain"></i>
-                    <h3>Terrain Data</h3>
-                    <p>High-resolution bathymetry from GEBCO 2024 with 15 arc-second grid resolution</p>
+                    <h3>Multi-Source Ocean Data</h3>
+                    <p>Bathymetry (GEBCO 2025), ocean physics (CMEMS GOPAF), biodiversity (GMB), and microplastics (NOAA-NCEI)</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-water"></i>
-                    <h3>Ocean Currents</h3>
-                    <p>Comprehensive current data from Copernicus Marine Service (GOPAF)</p>
+                    <i class="fas fa-robot"></i>
+                    <h3>Marine Robotics Simulation</h3>
+                    <p>Configurable 3-DOF and 6-DOF systems with APIs for custom robot design and hierarchical control</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-temperature-high"></i>
-                    <h3>Physical Parameters</h3>
-                    <p>Includes salinity, temperature, and sea surface height data</p>
+                    <i class="fas fa-flask"></i>
+                    <h3>PollutionModel3D</h3>
+                    <p>Mechanistic simulation engine integrating physical, chemical, and biological processes for pollutant dispersion</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-project-diagram"></i>
-                    <h3>Integrated Data</h3>
-                    <p>Harmonized grids using RBF interpolation for seamless integration</p>
+                    <h3>Modular Architecture</h3>
+                    <p>Scalable framework supporting custom training tasks and seamless data-simulation integration</p>
                 </div>
             </div>
         </div>
@@ -71,34 +80,11 @@
             <h2>Download the Dataset</h2>
             <div class="download-options">
                 <div class="download-card">
-                    <h3>Complete Dataset</h3>
-                    <p>Full combined environment data (NetCDF format)</p>
-                    <p class="file-size">~2.5 GB</p>
-                    <a href="https://example.com/download/complete-dataset" class="btn download-btn">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-                <div class="download-card">
-                    <h3>Terrain Data Only</h3>
-                    <p>Processed GEBCO bathymetry data</p>
-                    <p class="file-size">~800 MB</p>
-                    <a href="https://example.com/download/terrain-only" class="btn download-btn">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-                <div class="download-card">
-                    <h3>Currents Data Only</h3>
-                    <p>Processed GOPAF ocean currents data</p>
-                    <p class="file-size">~1.7 GB</p>
-                    <a href="https://example.com/download/currents-only" class="btn download-btn">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-                <div class="download-card">
-                    <h3>Sample Dataset</h3>
-                    <p>Small sample for testing (limited area)</p>
-                    <p class="file-size">~50 MB</p>
-                    <a href="https://example.com/download/sample-dataset" class="btn download-btn">
+                    <h3>OceanEnv Framework</h3>
+                    <p>Complete modular simulation environment with multi-source ocean data, marine robotics APIs, and PollutionModel3D</p>
+                    <p class="file-size">~5.0 GB</p>
+                    <p class="precision-info"><strong>Features:</strong> 15 arc-second spatial resolution, hourly temporal resolution, configurable robotics simulation</p>
+                    <a href="https://example.com/download/oceanenv-framework" class="btn download-btn">
                         <i class="fas fa-download"></i> Download
                     </a>
                 </div>
@@ -110,9 +96,12 @@
         <div class="container">
             <h2>How to Cite</h2>
             <div class="citation-box">
-                <p>If you use this dataset in your research, please cite it as follows:</p>
-                <pre>Author, A., et al. (2024). Combined Ocean Environment Dataset [Data set]. Retrieved from https://example.com/dataset</pre>
-                <a href="citation.txt" class="btn small">Download Citation</a>
+                <p>This dataset is currently under review and not yet publicly available for citation. Please check back later for the official citation format.</p>
+                <div class="citation-placeholder">
+                    <i class="fas fa-clock"></i>
+                    <span>Citation information will be available upon publication</span>
+                </div>
+                <p class="citation-note">If you are interested in using this dataset for research purposes, please contact us for early access.</p>
             </div>
         </div>
     </section>
@@ -121,8 +110,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Combined Ocean Environment Dataset</h3>
-                    <p>A comprehensive dataset for ocean environment research</p>
+                    <h3>OceanEnv</h3>
+                    <p>A holistic simulation environment for marine robotics training and research</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -131,16 +120,19 @@
                         <li><a href="data-description.html">Data Description</a></li>
                         <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                        <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                        <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: contact@example.com</p>
-                    <p>GitHub: <a href="https://github.com/username/repository">github.com/username/repository</a></p>
+                    <p>Contact information will be available upon publication</p>
+                    <p>GitHub: <span class="placeholder">Currently not public</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Ocean Environment Dataset Team. All rights reserved.</p>
+                <p>&copy; 2025 Ocean Environment Dataset Team. All rights reserved.</p>
             </div>
         </div>
     </footer>

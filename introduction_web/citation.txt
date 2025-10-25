@@ -1,26 +1,26 @@
-Citation for Combined Ocean Environment Dataset
+Citation for OceanEnv: A Holistic Simulation Environment for Marine Robotics
 ==============================================
 
 Please cite this dataset using one of the following formats:
 
 APA Style (7th Edition):
 ------------------------
-Author, A., et al. (2024). Combined Ocean Environment Dataset [Data set]. Ocean Research Institute. https://doi.org/10.xxxx/xxxxx
+Author, A., et al. (2025). OceanEnv: A Holistic Simulation Environment for Marine Robotics [Data set]. Ocean Research Institute. https://doi.org/10.xxxx/xxxxx
 
 Chicago Style (17th Edition):
 ----------------------------
-Author, A., et al. 2024. "Combined Ocean Environment Dataset." Data set. Ocean Research Institute. https://doi.org/10.xxxx/xxxxx.
+Author, A., et al. 2025. "OceanEnv: A Holistic Simulation Environment for Marine Robotics." Data set. Ocean Research Institute. https://doi.org/10.xxxx/xxxxx.
 
 MLA Style (9th Edition):
 -----------------------
-Author, A., et al. "Combined Ocean Environment Dataset." 2024. Ocean Research Institute, https://doi.org/10.xxxx/xxxxx.
+Author, A., et al. "OceanEnv: A Holistic Simulation Environment for Marine Robotics." 2025. Ocean Research Institute, https://doi.org/10.xxxx/xxxxx.
 
 BibTeX:
 -------
-@dataset{author2024combined,
+@dataset{author2025oceanenv,
   author       = {Author, A. and Others},
-  title        = {Combined Ocean Environment Dataset},
-  year         = {2024},
+  title        = {OceanEnv: A Holistic Simulation Environment for Marine Robotics},
+  year         = {2025},
   publisher    = {Ocean Research Institute},
   doi          = {10.xxxx/xxxxx},
   url          = {https://example.com/dataset}
@@ -29,10 +29,10 @@ BibTeX:
 RIS:
 ----
 TY  - DATA
-T1  - Combined Ocean Environment Dataset
+T1  - OceanEnv: A Holistic Simulation Environment for Marine Robotics
 AU  - Author, A.
 AU  - et al.
-PY  - 2024
+PY  - 2025
 PB  - Ocean Research Institute
 DO  - 10.xxxx/xxxxx
 UR  - https://example.com/dataset
@@ -45,8 +45,8 @@ When using this dataset, please also cite the original data sources:
 
 GEBCO Terrain Data:
 ------------------
-GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f
+GEBCO Compilation Group (2025). GEBCO 2025 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f
 
 Copernicus Marine Data:
 ---------------------
-E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GOPAF). doi:https://doi.org/10.48670/moi-00016
+E.U. Copernicus Marine Service Information (2025). Global Ocean Physics Analysis and Forecast (GOPAF). doi:https://doi.org/10.48670/moi-00016

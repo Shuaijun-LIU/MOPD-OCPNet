@@ -1,11 +1,30 @@
+# IDE and editor files
 .idea/
+.vscode/
 __pycache__/
+
+# macOS system files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Data files
 *.csv
 *.nc
 *.tif
 *.ref
+*.parquet
+*.mp4
+
+# Specific directories and files to ignore
 ref/
 **/ref/
-*.parquet
+shuaijun-icra-or-iclr26/
+sum.md
+news.txt
+mora-evn.txt
+keypoints.txt

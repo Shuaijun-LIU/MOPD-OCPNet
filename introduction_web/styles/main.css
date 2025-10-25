@@ -30,11 +30,18 @@
     box-sizing: border-box;
 }
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--dark-text);
     line-height: 1.6;
     background-color: var(--white);
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -136,8 +143,13 @@ header .container {
 }
 
 .logo h1 {
+    background: linear-gradient(135deg, #0d47a1 0%, #1976d2 30%, #42a5f5 60%, #1976d2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 nav ul {
@@ -174,22 +186,43 @@ nav ul li a.active:after {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    background: linear-gradient(135deg, var(--dark-blue), var(--primary-color));
+    background: linear-gradient(135deg, #0d47a1 0%, #1976d2 30%, #42a5f5 60%, #1976d2 100%);
     color: var(--white);
     text-align: center;
     padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
 }
 
 .hero p {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto 2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-buttons {
@@ -269,6 +302,69 @@ nav ul li a.active:after {
     color: var(--light-text);
     font-style: italic;
     margin: 1rem 0;
+}
+
+.precision-info {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    background: linear-gradient(135deg, var(--light-gray) 0%, #f0f8ff 100%);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.citation-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 2px dashed #ffc107;
+    color: #856404;
+    font-weight: 500;
+}
+
+.citation-placeholder i {
+    font-size: 1.2rem;
+}
+
+.citation-note {
+    font-style: italic;
+    color: var(--light-text);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.placeholder {
+    color: #999;
+    font-style: italic;
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Fix spacing issue for non-home pages - only apply to content sections after hero */
+.data-section,
+.about-section,
+.viz-section {
+    padding-top: 4rem;
+}
+
+/* Ensure consistent header spacing across all pages */
+header {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Documentation page specific fix - only apply to first content container after hero section */
+body:not(.home-page) .hero + .container:first-of-type {
+    padding-top: 4rem;
 }
 
 /* ===== CITATION SECTION ===== */

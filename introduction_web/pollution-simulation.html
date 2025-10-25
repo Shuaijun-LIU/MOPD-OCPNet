@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Simulation - OceanEnv</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <!-- Plotly.js for interactive visualizations -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .simulation-section {
+            margin-bottom: 4rem;
+        }
+        
+        .simulation-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .simulation-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn-simulate {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-simulate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(26, 115, 232, 0.3);
+        }
+        
+        .btn-simulate:disabled {
+            background: var(--medium-gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-reset {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-reset:hover {
+            background: var(--light-blue);
+        }
+        
+        .simulation-status {
+            background: var(--light-blue);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .simulation-status.running {
+            display: block;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-color: var(--secondary-color);
+        }
+        
+        .simulation-status.error {
+            display: block;
+            background: linear-gradient(135deg, #ffe8e8 0%, #fff0f0 100%);
+            border-color: #e74c3c;
+        }
+        
+        .simulation-status.success {
+            display: block;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-color: var(--secondary-color);
+        }
+        
+        .status-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .results-container {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .results-container.show {
+            display: block;
+        }
+        
+        .visualization-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .visualization-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+        }
+        
+        .simulation-parameters {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .parameter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .parameter-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .parameter-label {
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+        
+        .parameter-value {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--light-gray);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .default-values {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .default-values h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .default-values p {
+            margin: 0.25rem 0;
+            color: var(--dark-text);
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .simulation-controls {
+                flex-direction: column;
+            }
+            
+            .visualization-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="OceanEnv Logo" width="40" height="40">
+                <h1>OceanEnv</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html">Data Description</a></li>
+                    <li><a href="visualization.html">Visualizations</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                    <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                    <li><a href="pollution-simulation.html" class="active">Pollution Simulation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Pollution Dispersion Simulation</h2>
+            <p>Simulate pollutant dispersion in marine environments using advanced 3D modeling</p>
+        </div>
+    </section>
+
+    <section class="container simulation-section">
+        <div class="simulation-container">
+            <h3><i class="fas fa-flask"></i> Simulation Parameters</h3>
+            
+            <div class="default-values">
+                <h4><i class="fas fa-info-circle"></i> Default Configuration</h4>
+                <p><strong>Pollutant Type:</strong> Oil Spill</p>
+                <p><strong>Initial Dose:</strong> 1000 kg</p>
+                <p><strong>Location:</strong> 135°E, 35°N (East China Sea)</p>
+                <p><strong>Simulation Time:</strong> 30 days</p>
+                <p><strong>Reactions:</strong> Biodegradation, Evaporation, Dispersion</p>
+            </div>
+
+            <form id="simulationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="pollutantType"><i class="fas fa-tint"></i> Pollutant Type</label>
+                        <select id="pollutantType" name="pollutantType">
+                            <option value="oil">Oil Spill</option>
+                            <option value="chemical">Chemical Contaminant</option>
+                            <option value="plastic">Microplastics</option>
+                            <option value="nutrient">Nutrient Pollution</option>
+                            <option value="heavy_metal">Heavy Metal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="initialDose"><i class="fas fa-weight"></i> Initial Dose (kg)</label>
+                        <input type="number" id="initialDose" name="initialDose" value="1000" min="1" max="100000" step="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="longitude"><i class="fas fa-globe"></i> Longitude (°E)</label>
+                        <input type="number" id="longitude" name="longitude" value="135" min="-180" max="180" step="0.1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="latitude"><i class="fas fa-globe"></i> Latitude (°N)</label>
+                        <input type="number" id="latitude" name="latitude" value="35" min="-90" max="90" step="0.1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="simulationDays"><i class="fas fa-clock"></i> Simulation Duration (days)</label>
+                        <input type="number" id="simulationDays" name="simulationDays" value="30" min="1" max="365" step="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="waterDepth"><i class="fas fa-water"></i> Water Depth (m)</label>
+                        <input type="number" id="waterDepth" name="waterDepth" value="50" min="1" max="10000" step="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-atom"></i> Chemical & Physical Reactions</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="biodegradation" name="reactions" value="biodegradation" checked>
+                            <label for="biodegradation">Biodegradation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="evaporation" name="reactions" value="evaporation" checked>
+                            <label for="evaporation">Evaporation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dispersion" name="reactions" value="dispersion" checked>
+                            <label for="dispersion">Dispersion</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sedimentation" name="reactions" value="sedimentation">
+                            <label for="sedimentation">Sedimentation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="photolysis" name="reactions" value="photolysis">
+                            <label for="photolysis">Photolysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hydrolysis" name="reactions" value="hydrolysis">
+                            <label for="hydrolysis">Hydrolysis</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="environmentalConditions"><i class="fas fa-cloud-sun"></i> Environmental Conditions</label>
+                    <select id="environmentalConditions" name="environmentalConditions">
+                        <option value="calm">Calm (No wind, minimal currents)</option>
+                        <option value="moderate">Moderate (Light wind, moderate currents)</option>
+                        <option value="stormy">Stormy (Strong wind, high currents)</option>
+                        <option value="tropical">Tropical (High temperature, high humidity)</option>
+                        <option value="arctic">Arctic (Low temperature, ice cover)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="simulationNotes"><i class="fas fa-sticky-note"></i> Additional Notes</label>
+                    <textarea id="simulationNotes" name="simulationNotes" rows="3" placeholder="Add any specific conditions or notes for this simulation..."></textarea>
+                </div>
+
+                <div class="simulation-controls">
+                    <button type="button" id="runSimulation" class="btn-simulate">
+                        <i class="fas fa-play"></i>
+                        Run Simulation
+                    </button>
+                    <button type="button" id="resetForm" class="btn-reset">
+                        <i class="fas fa-undo"></i>
+                        Reset to Defaults
+                    </button>
+                </div>
+            </form>
+
+            <div id="simulationStatus" class="simulation-status">
+                <span class="status-icon"></span>
+                <span class="status-text"></span>
+            </div>
+        </div>
+
+        <div id="resultsContainer" class="results-container">
+            <h3><i class="fas fa-chart-line"></i> Simulation Results</h3>
+            
+            <div class="simulation-parameters">
+                <h4>Simulation Parameters Used</h4>
+                <div class="parameter-grid" id="parameterGrid">
+                    <!-- Parameters will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="visualization-tabs">
+                <button class="tab-button active" data-tab="animation">
+                    <i class="fas fa-play-circle"></i> Animation
+                </button>
+                <button class="tab-button" data-tab="concentration">
+                    <i class="fas fa-chart-area"></i> Concentration Map
+                </button>
+                <button class="tab-button" data-tab="statistics">
+                    <i class="fas fa-chart-bar"></i> Statistics
+                </button>
+                <button class="tab-button" data-tab="download">
+                    <i class="fas fa-download"></i> Download Results
+                </button>
+            </div>
+
+            <div id="animationTab" class="tab-content active">
+                <div class="visualization-container">
+                    <h4>Pollutant Dispersion Animation</h4>
+                    <div id="animationContainer">
+                        <div id="animationPlaceholder" style="text-align: center; padding: 2rem; background: var(--light-gray); border-radius: 8px;">
+                            <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p>Animation will appear here after simulation completes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="concentrationTab" class="tab-content">
+                <div class="visualization-container">
+                    <h4>Concentration Distribution</h4>
+                    <div id="concentrationChart" style="height: 500px;">
+                        <!-- Plotly chart will be rendered here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="statisticsTab" class="tab-content">
+                <div class="visualization-container">
+                    <h4>Simulation Statistics</h4>
+                    <div id="statisticsChart" style="height: 400px;">
+                        <!-- Statistics chart will be rendered here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="downloadTab" class="tab-content">
+                <div class="visualization-container">
+                    <h4>Download Simulation Results</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <a href="#" class="btn secondary" id="downloadGIF">
+                            <i class="fas fa-file-image"></i> Download GIF
+                        </a>
+                        <a href="#" class="btn secondary" id="downloadMP4">
+                            <i class="fas fa-file-video"></i> Download MP4
+                        </a>
+                        <a href="#" class="btn secondary" id="downloadData">
+                            <i class="fas fa-file-csv"></i> Download Data
+                        </a>
+                        <a href="#" class="btn secondary" id="downloadReport">
+                            <i class="fas fa-file-pdf"></i> Download Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OceanEnv</h3>
+                    <p>A holistic simulation environment for marine robotics training and research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                        <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                        <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Contact information will be available upon publication</p>
+                    <p>GitHub: <span class="placeholder">Currently not public</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Pollution Simulation JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('simulationForm');
+            const runButton = document.getElementById('runSimulation');
+            const resetButton = document.getElementById('resetForm');
+            const statusDiv = document.getElementById('simulationStatus');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const parameterGrid = document.getElementById('parameterGrid');
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(targetTab + 'Tab').classList.add('active');
+                });
+            });
+
+            // Reset form to defaults
+            resetButton.addEventListener('click', function() {
+                form.reset();
+                resultsContainer.classList.remove('show');
+                statusDiv.style.display = 'none';
+            });
+
+            // Run simulation
+            runButton.addEventListener('click', function() {
+                const formData = new FormData(form);
+                const simulationParams = Object.fromEntries(formData.entries());
+                
+                // Show loading status
+                showStatus('running', 'Running simulation...', 'fas fa-spinner fa-spin');
+                
+                // Disable button
+                runButton.disabled = true;
+                runButton.innerHTML = '<span class="loading-spinner"></span> Running...';
+                
+                // Simulate API call (replace with actual backend call)
+                setTimeout(() => {
+                    runSimulation(simulationParams);
+                }, 2000);
+            });
+
+            function showStatus(type, message, iconClass) {
+                statusDiv.className = `simulation-status ${type}`;
+                statusDiv.style.display = 'block';
+                statusDiv.querySelector('.status-icon').className = `status-icon ${iconClass}`;
+                statusDiv.querySelector('.status-text').textContent = message;
+            }
+
+            function runSimulation(params) {
+                try {
+                    // Update parameter display
+                    updateParameterDisplay(params);
+                    
+                    // Call backend simulation
+                    fetch('cgi-bin/pollution_simulation.py', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(params)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success status
+                            showStatus('success', 'Simulation completed successfully!', 'fas fa-check-circle');
+                            
+                            // Show results
+                            resultsContainer.classList.add('show');
+                            
+                            // Generate visualizations with real data
+                            generateVisualizations(params, data);
+                            
+                        } else {
+                            showStatus('error', 'Simulation failed: ' + data.error, 'fas fa-exclamation-circle');
+                        }
+                        
+                        // Re-enable button
+                        runButton.disabled = false;
+                        runButton.innerHTML = '<i class="fas fa-play"></i> Run Simulation';
+                    })
+                    .catch(error => {
+                        showStatus('error', 'Network error: ' + error.message, 'fas fa-exclamation-circle');
+                        runButton.disabled = false;
+                        runButton.innerHTML = '<i class="fas fa-play"></i> Run Simulation';
+                    });
+                    
+                } catch (error) {
+                    showStatus('error', 'Simulation failed: ' + error.message, 'fas fa-exclamation-circle');
+                    runButton.disabled = false;
+                    runButton.innerHTML = '<i class="fas fa-play"></i> Run Simulation';
+                }
+            }
+
+            function updateParameterDisplay(params) {
+                const reactions = Array.from(document.querySelectorAll('input[name="reactions"]:checked')).map(cb => cb.value);
+                
+                parameterGrid.innerHTML = `
+                    <div class="parameter-item">
+                        <span class="parameter-label">Pollutant Type:</span>
+                        <span class="parameter-value">${params.pollutantType}</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Initial Dose:</span>
+                        <span class="parameter-value">${params.initialDose} kg</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Location:</span>
+                        <span class="parameter-value">${params.longitude}°E, ${params.latitude}°N</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Duration:</span>
+                        <span class="parameter-value">${params.simulationDays} days</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Water Depth:</span>
+                        <span class="parameter-value">${params.waterDepth} m</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Reactions:</span>
+                        <span class="parameter-value">${reactions.join(', ')}</span>
+                    </div>
+                    <div class="parameter-item">
+                        <span class="parameter-label">Environment:</span>
+                        <span class="parameter-value">${params.environmentalConditions}</span>
+                    </div>
+                `;
+            }
+
+            function generateVisualizations(params, data) {
+                // Generate concentration map
+                generateConcentrationMap(data);
+                
+                // Generate statistics
+                generateStatistics(data);
+                
+                // Setup download links
+                setupDownloadLinks(data);
+            }
+
+            function generateConcentrationMap(data) {
+                if (data && data.statistics) {
+                    // Use real data from simulation
+                    const stats = data.statistics;
+                    const days = stats.days;
+                    const maxConcentrations = stats.max_concentrations;
+                    
+                    const plotData = [{
+                        x: days,
+                        y: maxConcentrations,
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        name: 'Max Concentration',
+                        line: { color: '#1a73e8' }
+                    }];
+
+                    const layout = {
+                        title: 'Maximum Pollutant Concentration Over Time',
+                        xaxis: { title: 'Time (days)' },
+                        yaxis: { title: 'Concentration (%)' }
+                    };
+
+                    Plotly.newPlot('concentrationChart', plotData, layout);
+                } else {
+                    // Fallback to sample data
+                    const sampleData = {
+                        x: Array.from({length: 20}, (_, i) => 130 + i * 0.5),
+                        y: Array.from({length: 20}, (_, i) => 30 + i * 0.5),
+                        z: Array.from({length: 20}, () => 
+                            Array.from({length: 20}, () => Math.random() * 100)
+                        ),
+                        type: 'heatmap',
+                        colorscale: 'Viridis'
+                    };
+
+                    const layout = {
+                        title: 'Pollutant Concentration Distribution',
+                        xaxis: { title: 'Longitude (°E)' },
+                        yaxis: { title: 'Latitude (°N)' }
+                    };
+
+                    Plotly.newPlot('concentrationChart', [sampleData], layout);
+                }
+            }
+
+            function generateStatistics(data) {
+                if (data && data.statistics) {
+                    // Use real data from simulation
+                    const stats = data.statistics;
+                    const days = stats.days;
+                    const maxConcentrations = stats.max_concentrations;
+                    const totalDispersion = stats.total_dispersion;
+                    
+                    const plotData = [
+                        {
+                            x: days,
+                            y: maxConcentrations,
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Max Concentration (%)',
+                            line: { color: '#1a73e8' }
+                        },
+                        {
+                            x: days,
+                            y: totalDispersion,
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Total Dispersion',
+                            line: { color: '#34a853' },
+                            yaxis: 'y2'
+                        }
+                    ];
+
+                    const layout = {
+                        title: 'Pollutant Dispersion Statistics',
+                        xaxis: { title: 'Time (days)' },
+                        yaxis: { 
+                            title: 'Max Concentration (%)',
+                            side: 'left'
+                        },
+                        yaxis2: {
+                            title: 'Total Dispersion',
+                            side: 'right',
+                            overlaying: 'y'
+                        }
+                    };
+
+                    Plotly.newPlot('statisticsChart', plotData, layout);
+                } else {
+                    // Fallback to sample data
+                    const sampleData = [{
+                        x: ['Day 1', 'Day 5', 'Day 10', 'Day 15', 'Day 20', 'Day 25', 'Day 30'],
+                        y: [100, 85, 70, 55, 45, 35, 25],
+                        type: 'scatter',
+                        mode: 'lines+markers',
+                        name: 'Concentration (%)',
+                        line: { color: '#1a73e8' }
+                    }];
+
+                    const layout = {
+                        title: 'Pollutant Concentration Over Time',
+                        xaxis: { title: 'Time (days)' },
+                        yaxis: { title: 'Concentration (%)' }
+                    };
+
+                    Plotly.newPlot('statisticsChart', sampleData, layout);
+                }
+            }
+
+            function setupDownloadLinks(data) {
+                if (data && data.output_files) {
+                    // Use real file URLs from simulation
+                    document.getElementById('downloadGIF').href = data.output_files.gif;
+                    document.getElementById('downloadMP4').href = data.output_files.mp4;
+                    document.getElementById('downloadData').href = data.output_files.statistics;
+                    document.getElementById('downloadReport').href = data.output_files.png;
+                } else {
+                    // Fallback to placeholder links
+                    document.getElementById('downloadGIF').href = '#';
+                    document.getElementById('downloadMP4').href = '#';
+                    document.getElementById('downloadData').href = '#';
+                    document.getElementById('downloadReport').href = '#';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

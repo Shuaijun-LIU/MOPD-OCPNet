@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Pollution Simulation - OceanEnv</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .btn { padding: 10px 20px; background: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background: #0d47a1; }
+        .result { margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Pollution Simulation Test</h1>
+    
+    <div class="test-section">
+        <h2>Test CGI Script</h2>
+        <button class="btn" onclick="testCGI()">Test CGI Script</button>
+        <div id="cgiResult" class="result" style="display: none;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Form Data</h2>
+        <form id="testForm">
+            <label>Pollutant Type: <select name="pollutantType">
+                <option value="oil">Oil Spill</option>
+                <option value="chemical">Chemical</option>
+            </select></label><br><br>
+            <label>Initial Dose: <input type="number" name="initialDose" value="1000"></label><br><br>
+            <label>Longitude: <input type="number" name="longitude" value="135"></label><br><br>
+            <label>Latitude: <input type="number" name="latitude" value="35"></label><br><br>
+            <label>Simulation Days: <input type="number" name="simulationDays" value="30"></label><br><br>
+            <button type="button" class="btn" onclick="testFormSubmission()">Test Form Submission</button>
+        </form>
+        <div id="formResult" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        function testCGI() {
+            fetch('cgi-bin/pollution_simulation.py', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'pollutantType=oil&initialDose=1000&longitude=135&latitude=35&simulationDays=30&waterDepth=50&reactions=biodegradation&environmentalConditions=moderate'
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cgiResult').style.display = 'block';
+                document.getElementById('cgiResult').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('cgiResult').style.display = 'block';
+                document.getElementById('cgiResult').innerHTML = 'Error: ' + error.message;
+            });
+        }
+
+        function testFormSubmission() {
+            const form = document.getElementById('testForm');
+            const formData = new FormData(form);
+            
+            fetch('cgi-bin/pollution_simulation.py', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('formResult').style.display = 'block';
+                document.getElementById('formResult').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('formResult').style.display = 'block';
+                document.getElementById('formResult').innerHTML = 'Error: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>

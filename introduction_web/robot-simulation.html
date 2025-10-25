@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Simulation - OceanEnv</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        .simulation-section {
+            margin-bottom: 4rem;
+        }
+        
+        .simulation-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .upload-area {
+            border: 3px dashed var(--medium-gray);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #f8f9fa 100%);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 2rem 0;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e8f4fd 100%);
+        }
+        
+        .upload-area.dragover {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--white);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .upload-area.dragover .upload-icon {
+            color: var(--white);
+        }
+        
+        .file-list {
+            margin: 1rem 0;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 6px;
+            margin: 0.5rem 0;
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .file-icon {
+            color: var(--primary-color);
+        }
+        
+        .remove-file {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+        
+        .remove-file:hover {
+            color: var(--success-color);
+        }
+        
+        .example-section {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #f0f8ff 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .simulation-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .control-group select,
+        .control-group input {
+            padding: 0.5rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .simulation-status {
+            display: none;
+            background: linear-gradient(135deg, #d4edda 0%, #f8fff9 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--secondary-color);
+            text-align: center;
+        }
+        
+        .simulation-running {
+            background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
+            border-color: #ffc107;
+        }
+        
+        .simulation-complete {
+            background: linear-gradient(135deg, #d1ecf1 0%, #e8f7fa 100%);
+            border-color: #17a2b8;
+        }
+        
+        .status-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .running-icon {
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .simulation-output {
+            display: none;
+            margin: 2rem 0;
+        }
+        
+        .output-container {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--medium-gray);
+            min-height: 400px;
+        }
+        
+        .output-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .output-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .output-tab.active {
+            border-bottom-color: var(--primary-color);
+            background: var(--light-blue);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .output-content {
+            display: none;
+        }
+        
+        .output-content.active {
+            display: block;
+        }
+        
+        .simulation-log {
+            background: #1e1e1e;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            margin: 0.25rem 0;
+            padding: 0.25rem;
+        }
+        
+        .log-info { color: #00ff00; }
+        .log-warning { color: #ffaa00; }
+        .log-error { color: #ff0000; }
+        .log-debug { color: #888888; }
+        
+        .requirements-box {
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .requirements-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .requirements-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .requirements-list li i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+        
+        .example-robot {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .robot-preview {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .robot-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .robot-info {
+            flex: 2;
+        }
+        
+        .robot-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .spec-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.25rem;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="OceanEnv Logo" width="40" height="40">
+                <h1>OceanEnv</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html">Data Description</a></li>
+                    <li><a href="visualization.html">Visualizations</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                    <li><a href="robot-simulation.html" class="active">Robot Simulation</a></li>
+                    <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Marine Robot Simulation</h2>
+            <p>Deploy and test your marine robotics algorithms in realistic ocean environments</p>
+        </div>
+    </section>
+
+    <section class="container simulation-section">
+        <!-- Custom Robot Simulation -->
+        <div class="simulation-container">
+            <h2><i class="fas fa-robot"></i> Custom Robot Simulation</h2>
+            <p>Upload your robot configuration files or place them in the <code>simu/</code> directory to run simulations with your custom marine robots.</p>
+            
+            <div class="requirements-box">
+                <h4><i class="fas fa-list-check"></i> Simulation Requirements</h4>
+                <ul class="requirements-list">
+                    <li><i class="fas fa-check"></i> Robot kinematics and dynamics model (Python class)</li>
+                    <li><i class="fas fa-check"></i> Control system implementation</li>
+                    <li><i class="fas fa-check"></i> Sensor models (optional)</li>
+                    <li><i class="fas fa-check"></i> Mission parameters and waypoints</li>
+                    <li><i class="fas fa-check"></i> Environment interaction models</li>
+                </ul>
+            </div>
+
+            <!-- File Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Upload Robot Configuration Files</h3>
+                <p>Drag and drop your Python files here, or click to browse</p>
+                <p><small>Supported formats: .py, .json, .yaml, .txt</small></p>
+                <input type="file" id="fileInput" multiple accept=".py,.json,.yaml,.txt" style="display: none;">
+            </div>
+
+            <!-- File List -->
+            <div class="file-list" id="fileList"></div>
+
+            <!-- Simulation Controls -->
+            <div class="simulation-controls">
+                <div class="control-group">
+                    <label for="simulationType">Simulation Type</label>
+                    <select id="simulationType">
+                        <option value="kinematics">Kinematics Only</option>
+                        <option value="dynamics">Full Dynamics</option>
+                        <option value="control">Control System Test</option>
+                        <option value="mission">Mission Simulation</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="simulationDuration">Duration (seconds)</label>
+                    <input type="number" id="simulationDuration" value="60" min="1" max="3600">
+                </div>
+                
+                <div class="control-group">
+                    <label for="environmentType">Ocean Environment</label>
+                    <select id="environmentType">
+                        <option value="calm">Calm Waters</option>
+                        <option value="moderate">Moderate Currents</option>
+                        <option value="rough">Rough Conditions</option>
+                        <option value="custom">Custom Environment</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="depthLevel">Operating Depth (m)</label>
+                    <input type="number" id="depthLevel" value="10" min="0" max="1000">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <button id="runCustomSimulation" class="btn primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                    <i class="fas fa-play"></i> Run Custom Simulation
+                </button>
+            </div>
+
+            <!-- Simulation Status -->
+            <div class="simulation-status" id="simulationStatus">
+                <div class="status-icon" id="statusIcon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 id="statusTitle">Preparing Simulation...</h3>
+                <p id="statusMessage">Loading robot configuration and initializing environment...</p>
+            </div>
+
+            <!-- Simulation Output -->
+            <div class="simulation-output" id="simulationOutput">
+                <div class="output-tabs">
+                    <button class="output-tab active" data-tab="log">Simulation Log</button>
+                    <button class="output-tab" data-tab="trajectory">Trajectory</button>
+                    <button class="output-tab" data-tab="performance">Performance</button>
+                    <button class="output-tab" data-tab="download">Download Results</button>
+                </div>
+                
+                <div class="output-container">
+                    <div class="output-content active" id="logContent">
+                        <div class="simulation-log" id="simulationLog">
+                            <div class="log-entry log-info">[INFO] Initializing OceanEnv simulation environment...</div>
+                            <div class="log-entry log-info">[INFO] Loading robot configuration files...</div>
+                            <div class="log-entry log-info">[INFO] Setting up ocean environment parameters...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="output-content" id="trajectoryContent">
+                        <h4>Robot Trajectory Visualization</h4>
+                        <p>Trajectory plots and 3D visualization will be displayed here after simulation completion.</p>
+                        <div style="background: var(--light-gray); height: 300px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--light-text);">
+                            <i class="fas fa-chart-line" style="font-size: 2rem; margin-right: 1rem;"></i>
+                            Trajectory visualization placeholder
+                        </div>
+                    </div>
+                    
+                    <div class="output-content" id="performanceContent">
+                        <h4>Performance Metrics</h4>
+                        <p>Performance analysis and metrics will be shown here.</p>
+                        <div style="background: var(--light-gray); height: 300px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--light-text);">
+                            <i class="fas fa-tachometer-alt" style="font-size: 2rem; margin-right: 1rem;"></i>
+                            Performance metrics placeholder
+                        </div>
+                    </div>
+                    
+                    <div class="output-content" id="downloadContent">
+                        <h4>Download Simulation Results</h4>
+                        <p>Download your simulation data and results:</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <a href="#" class="btn secondary" style="text-align: center; padding: 1rem;">
+                                <i class="fas fa-download"></i><br>Trajectory Data (.csv)
+                            </a>
+                            <a href="#" class="btn secondary" style="text-align: center; padding: 1rem;">
+                                <i class="fas fa-download"></i><br>Performance Report (.pdf)
+                            </a>
+                            <a href="#" class="btn secondary" style="text-align: center; padding: 1rem;">
+                                <i class="fas fa-download"></i><br>Simulation Log (.txt)
+                            </a>
+                            <a href="#" class="btn secondary" style="text-align: center; padding: 1rem;">
+                                <i class="fas fa-download"></i><br>All Results (.zip)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Robot Simulation -->
+        <div class="example-section">
+            <h2><i class="fas fa-rocket"></i> Example: 6-DOF Underwater Quadrotor</h2>
+            <p>Try our pre-configured 6-DOF underwater quadrotor simulation with realistic physics and ocean environment effects.</p>
+            
+            <div class="example-robot">
+                <div class="robot-preview">
+                    <div class="robot-icon">
+                        <i class="fas fa-helicopter"></i>
+                    </div>
+                    <h4>Underwater Quadrotor</h4>
+                    <p>6-DOF Marine UAV</p>
+                </div>
+                
+                <div class="robot-info">
+                    <h4>Robot Specifications</h4>
+                    <div class="robot-specs">
+                        <div class="spec-item">
+                            <div class="spec-label">Mass</div>
+                            <div class="spec-value">2.0 kg</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Arm Length</div>
+                            <div class="spec-value">0.25 m</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Max Speed</div>
+                            <div class="spec-value">2.0 m/s</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Operating Depth</div>
+                            <div class="spec-value">0-100 m</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Endurance</div>
+                            <div class="spec-value">30-60 min</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Sensors</div>
+                            <div class="spec-value">IMU, Depth, Current</div>
+                        </div>
+                    </div>
+                    
+                    <h4>Simulation Features</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Realistic underwater physics with added mass effects</li>
+                        <li>Ocean current and turbulence modeling</li>
+                        <li>PID-based flight control system</li>
+                        <li>Patrol mission with waypoint navigation</li>
+                        <li>Real-time visualization and data logging</li>
+                        <li>Motor dynamics and thrust allocation</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <button id="runQuadrotorSimulation" class="btn primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                            <i class="fas fa-play"></i> Run Quadrotor Simulation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quadrotor Simulation Output -->
+        <div class="simulation-output" id="quadrotorOutput">
+            <h3>Underwater Quadrotor Simulation Results</h3>
+            <div class="output-container">
+                <div class="output-tabs">
+                    <button class="output-tab active" data-tab="realtime">Real-time Visualization</button>
+                    <button class="output-tab" data-tab="trajectory">3D Trajectory</button>
+                    <button class="output-tab" data-tab="dynamics">Dynamics Analysis</button>
+                    <button class="output-tab" data-tab="control">Control Performance</button>
+                </div>
+                
+                <!-- Real-time Visualization Tab -->
+                <div class="output-content active" id="realtimeContent">
+                    <div id="quadrotorVisualization" style="min-height: 600px; background: var(--white); border-radius: 6px; position: relative; overflow: hidden;">
+                        <!-- Loading State -->
+                        <div id="loadingState" style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column;">
+                            <i class="fas fa-cogs running-icon" style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color);"></i>
+                            <h4>Initializing Quadrotor Simulation...</h4>
+                            <p>Loading underwater_quadrotor_simulator.py</p>
+                            <div style="background: var(--light-gray); padding: 1rem; border-radius: 6px; margin: 1rem 0; text-align: left; font-family: monospace; font-size: 0.9rem; max-width: 500px;">
+                                <div style="color: #00ff00;">[INFO] Starting 6-DOF Underwater Quadrotor UAV Simulator</div>
+                                <div style="color: #00ff00;">[INFO] Mission Mode: Patrol</div>
+                                <div style="color: #00ff00;">[INFO] Target: Square patrol at 2 meters underwater depth</div>
+                                <div style="color: #00ff00;">[INFO] Initializing physics engine...</div>
+                                <div style="color: #00ff00;">[INFO] Setting up ocean environment...</div>
+                                <div style="color: #00ff00;">[INFO] Loading control system...</div>
+                                <div style="color: #00ff00;">[INFO] Starting real-time visualization...</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Simulation Canvas Container -->
+                        <div id="simulationCanvas" style="display: none; height: 100%; position: relative;">
+                            <!-- 3D Trajectory Plot -->
+                            <div id="plot3d" style="width: 50%; height: 50%; float: left; border-right: 2px solid var(--light-gray); border-bottom: 2px solid var(--light-gray);">
+                                <h5 style="margin: 0.5rem; color: var(--primary-color);">3D Trajectory & Ocean Current</h5>
+                                <canvas id="canvas3d" style="width: 100%; height: calc(100% - 40px);"></canvas>
+                            </div>
+                            
+                            <!-- Position Plot -->
+                            <div id="plotPosition" style="width: 50%; height: 50%; float: right; border-bottom: 2px solid var(--light-gray);">
+                                <h5 style="margin: 0.5rem; color: var(--primary-color);">Position Changes</h5>
+                                <canvas id="canvasPosition" style="width: 100%; height: calc(100% - 40px);"></canvas>
+                            </div>
+                            
+                            <!-- Attitude Plot -->
+                            <div id="plotAttitude" style="width: 50%; height: 50%; float: left; border-right: 2px solid var(--light-gray);">
+                                <h5 style="margin: 0.5rem; color: var(--primary-color);">Attitude Angles</h5>
+                                <canvas id="canvasAttitude" style="width: 100%; height: calc(100% - 40px);"></canvas>
+                            </div>
+                            
+                            <!-- Motor Speed Plot -->
+                            <div id="plotMotor" style="width: 50%; height: 50%; float: right;">
+                                <h5 style="margin: 0.5rem; color: var(--primary-color);">Four Motor Speeds</h5>
+                                <canvas id="canvasMotor" style="width: 100%; height: calc(100% - 40px);"></canvas>
+                            </div>
+                            
+                            <!-- Real-time Status Panel -->
+                            <div id="statusPanel" style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.95); padding: 1rem; border-radius: 8px; border: 1px solid var(--medium-gray); min-width: 250px; font-family: monospace; font-size: 0.85rem;">
+                                <h6 style="margin: 0 0 0.5rem 0; color: var(--primary-color);">Real-time Status</h6>
+                                <div id="statusContent">
+                                    <div>Position: (0.00, 0.00, -2.00) m</div>
+                                    <div>Velocity: (0.00, 0.00, 0.00) m/s</div>
+                                    <div>Attitude: (0.0°, 0.0°, 0.0°)</div>
+                                    <div>Motor1: 0 RPM</div>
+                                    <div>Motor2: 0 RPM</div>
+                                    <div>Motor3: 0 RPM</div>
+                                    <div>Motor4: 0 RPM</div>
+                                    <div>Mission: Patrol</div>
+                                    <div>Time: 0.0 s</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Simulation Controls -->
+                        <div id="simControls" style="display: none; position: absolute; bottom: 10px; left: 10px; background: rgba(255,255,255,0.95); padding: 1rem; border-radius: 8px; border: 1px solid var(--medium-gray);">
+                            <button id="pauseBtn" class="btn secondary" style="margin-right: 0.5rem; padding: 0.5rem 1rem;">
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button id="resetBtn" class="btn secondary" style="margin-right: 0.5rem; padding: 0.5rem 1rem;">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                            <button id="speedBtn" class="btn secondary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-tachometer-alt"></i> Speed: 1x
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Trajectory Tab -->
+                <div class="output-content" id="trajectoryContent">
+                    <h4>3D Trajectory Analysis</h4>
+                    <p>Detailed 3D trajectory visualization showing the quadrotor's path through the underwater environment.</p>
+                    <div style="background: var(--light-gray); height: 400px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--light-text);">
+                        <div style="text-align: center;">
+                            <i class="fas fa-cube" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <h5>3D Trajectory Visualization</h5>
+                            <p>Interactive 3D plot showing the complete flight path</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dynamics Analysis Tab -->
+                <div class="output-content" id="dynamicsContent">
+                    <h4>Dynamics Analysis</h4>
+                    <p>Analysis of the quadrotor's dynamic behavior including forces, moments, and ocean current effects.</p>
+                    <div style="background: var(--light-gray); height: 400px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--light-text);">
+                        <div style="text-align: center;">
+                            <i class="fas fa-chart-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <h5>Dynamics Analysis</h5>
+                            <p>Force and moment analysis over time</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Control Performance Tab -->
+                <div class="output-content" id="controlContent">
+                    <h4>Control Performance</h4>
+                    <p>Performance metrics of the PID control system including tracking errors and response characteristics.</p>
+                    <div style="background: var(--light-gray); height: 400px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--light-text);">
+                        <div style="text-align: center;">
+                            <i class="fas fa-sliders-h" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <h5>Control Performance</h5>
+                            <p>PID controller performance metrics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OceanEnv</h3>
+                    <p>A holistic simulation environment for marine robotics training and research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                        <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                        <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Contact information will be available upon publication</p>
+                    <p>GitHub: <span class="placeholder">Currently not public</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // File upload functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        let uploadedFiles = [];
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
+        fileInput.addEventListener('change', handleFileSelect);
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            addFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            addFiles(files);
+        }
+
+        function addFiles(files) {
+            files.forEach(file => {
+                if (isValidFile(file)) {
+                    uploadedFiles.push(file);
+                    displayFile(file);
+                } else {
+                    alert(`Invalid file type: ${file.name}. Please upload .py, .json, .yaml, or .txt files.`);
+                }
+            });
+        }
+
+        function isValidFile(file) {
+            const validExtensions = ['.py', '.json', '.yaml', '.txt'];
+            return validExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+        }
+
+        function displayFile(file) {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.innerHTML = `
+                <div class="file-info">
+                    <i class="fas fa-file-code file-icon"></i>
+                    <div>
+                        <div style="font-weight: 600;">${file.name}</div>
+                        <div style="font-size: 0.9rem; color: var(--light-text);">
+                            ${(file.size / 1024).toFixed(1)} KB
+                        </div>
+                    </div>
+                </div>
+                <button class="remove-file" onclick="removeFile('${file.name}')">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            fileList.appendChild(fileItem);
+        }
+
+        function removeFile(fileName) {
+            uploadedFiles = uploadedFiles.filter(file => file.name !== fileName);
+            updateFileList();
+        }
+
+        function updateFileList() {
+            fileList.innerHTML = '';
+            uploadedFiles.forEach(displayFile);
+        }
+
+        // Simulation functionality
+        const runCustomSimulation = document.getElementById('runCustomSimulation');
+        const runQuadrotorSimulation = document.getElementById('runQuadrotorSimulation');
+        const simulationStatus = document.getElementById('simulationStatus');
+        const simulationOutput = document.getElementById('simulationOutput');
+        const quadrotorOutput = document.getElementById('quadrotorOutput');
+
+        runCustomSimulation.addEventListener('click', function() {
+            if (uploadedFiles.length === 0) {
+                alert('Please upload at least one robot configuration file before running simulation.');
+                return;
+            }
+
+            simulateCustomRobot();
+        });
+
+        runQuadrotorSimulation.addEventListener('click', function() {
+            simulateQuadrotor();
+        });
+
+        function simulateCustomRobot() {
+            // Show simulation status
+            simulationStatus.style.display = 'block';
+            simulationOutput.style.display = 'none';
+            simulationStatus.className = 'simulation-status simulation-running';
+            
+            const statusIcon = document.getElementById('statusIcon');
+            const statusTitle = document.getElementById('statusTitle');
+            const statusMessage = document.getElementById('statusMessage');
+            const log = document.getElementById('simulationLog');
+
+            statusIcon.innerHTML = '<i class="fas fa-cogs running-icon"></i>';
+            statusTitle.textContent = 'Running Custom Robot Simulation...';
+            statusMessage.textContent = 'Processing uploaded files and initializing simulation...';
+
+            // Simulate processing steps
+            const steps = [
+                { delay: 1000, message: 'Loading robot configuration files...', log: '[INFO] Parsing robot configuration files...' },
+                { delay: 2000, message: 'Initializing physics engine...', log: '[INFO] Setting up physics simulation environment...' },
+                { delay: 3000, message: 'Configuring ocean environment...', log: '[INFO] Loading ocean environment parameters...' },
+                { delay: 4000, message: 'Setting up control system...', log: '[INFO] Initializing control algorithms...' },
+                { delay: 5000, message: 'Starting simulation...', log: '[INFO] Beginning simulation execution...' },
+                { delay: 6000, message: 'Simulation completed successfully!', log: '[INFO] Simulation completed successfully!' }
+            ];
+
+            let currentStep = 0;
+            function processStep() {
+                if (currentStep < steps.length) {
+                    const step = steps[currentStep];
+                    setTimeout(() => {
+                        statusMessage.textContent = step.message;
+                        addLogEntry(step.log);
+                        currentStep++;
+                        processStep();
+                    }, step.delay - (currentStep > 0 ? steps[currentStep - 1].delay : 0));
+                } else {
+                    // Simulation completed
+                    setTimeout(() => {
+                        simulationStatus.className = 'simulation-status simulation-complete';
+                        statusIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                        statusTitle.textContent = 'Simulation Completed!';
+                        statusMessage.textContent = 'Your custom robot simulation has finished successfully.';
+                        
+                        // Show output
+                        simulationOutput.style.display = 'block';
+                    }, 1000);
+                }
+            }
+
+            processStep();
+        }
+
+        // Quadrotor simulation variables
+        let simulationData = {
+            time: [],
+            position: { x: [], y: [], z: [] },
+            attitude: { roll: [], pitch: [], yaw: [] },
+            velocity: { x: [], y: [], z: [] },
+            motors: { m1: [], m2: [], m3: [], m4: [] },
+            current: { x: [], y: [], z: [] }
+        };
+        
+        let simulationRunning = false;
+        let simulationTime = 0;
+        let simulationSpeed = 1;
+        let animationId = null;
+
+        function simulateQuadrotor() {
+            quadrotorOutput.style.display = 'block';
+            
+            // Show loading state
+            document.getElementById('loadingState').style.display = 'flex';
+            document.getElementById('simulationCanvas').style.display = 'none';
+            
+            // Simulate loading time
+            setTimeout(() => {
+                startQuadrotorSimulation();
+            }, 3000);
+        }
+
+        function addLogEntry(message, type = 'info') {
+            const log = document.getElementById('simulationLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = message;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        // Tab switching functionality
+        document.querySelectorAll('.output-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.dataset.tab;
+                
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.output-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId + 'Content').classList.add('active');
+            });
+        });
+
+        // Quadrotor simulation functions
+        function startQuadrotorSimulation() {
+            // Hide loading state and show simulation canvas
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('simulationCanvas').style.display = 'block';
+            document.getElementById('simControls').style.display = 'block';
+            
+            // Initialize simulation data
+            resetSimulationData();
+            
+            // Start simulation
+            simulationRunning = true;
+            simulationTime = 0;
+            
+            // Initialize canvas plots
+            initializeCanvasPlots();
+            
+            // Start animation loop
+            startAnimationLoop();
+            
+            // Setup control buttons
+            setupSimulationControls();
+        }
+
+        function resetSimulationData() {
+            simulationData = {
+                time: [],
+                position: { x: [], y: [], z: [] },
+                attitude: { roll: [], pitch: [], yaw: [] },
+                velocity: { x: [], y: [], z: [] },
+                motors: { m1: [], m2: [], m3: [], m4: [] },
+                current: { x: [], y: [], z: [] }
+            };
+        }
+
+        function initializeCanvasPlots() {
+            // Initialize all canvas elements with high DPI support
+            const canvases = ['canvas3d', 'canvasPosition', 'canvasAttitude', 'canvasMotor'];
+            canvases.forEach(canvasId => {
+                const canvas = document.getElementById(canvasId);
+                const ctx = canvas.getContext('2d');
+                
+                // Get device pixel ratio for high DPI displays
+                const devicePixelRatio = window.devicePixelRatio || 1;
+                
+                // Get the display size of the canvas
+                const rect = canvas.getBoundingClientRect();
+                const displayWidth = rect.width;
+                const displayHeight = rect.height;
+                
+                // Set the actual size in memory (scaled to account for extra pixel density)
+                canvas.width = displayWidth * devicePixelRatio;
+                canvas.height = displayHeight * devicePixelRatio;
+                
+                // Scale the drawing context so everything will work at the higher ratio
+                ctx.scale(devicePixelRatio, devicePixelRatio);
+                
+                // Set the display size (CSS pixels)
+                canvas.style.width = displayWidth + 'px';
+                canvas.style.height = displayHeight + 'px';
+                
+                // Clear and draw initial background
+                ctx.clearRect(0, 0, displayWidth, displayHeight);
+                drawCanvasBackground(canvas, ctx, displayWidth, displayHeight);
+            });
+        }
+
+        function drawCanvasBackground(canvas, ctx, width, height) {
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            
+            // Draw grid
+            const gridSize = 20;
+            for (let i = 0; i <= width; i += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(i, height);
+                ctx.stroke();
+            }
+            for (let i = 0; i <= height; i += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, i);
+                ctx.lineTo(width, i);
+                ctx.stroke();
+            }
+        }
+
+        function startAnimationLoop() {
+            function animate() {
+                if (simulationRunning) {
+                    updateSimulation();
+                    updateVisualizations();
+                    updateStatusPanel();
+                    simulationTime += 0.02 * simulationSpeed; // 50Hz * speed
+                }
+                
+                if (simulationTime < 60) { // Run for 60 seconds
+                    animationId = requestAnimationFrame(animate);
+                } else {
+                    // Simulation completed
+                    simulationRunning = false;
+                    showSimulationComplete();
+                }
+            }
+            
+            animate();
+        }
+
+        function updateSimulation() {
+            // Simulate quadrotor dynamics (simplified model)
+            const dt = 0.02;
+            const targetPositions = [
+                { x: 2.0, y: 0.0, z: -2.0 },   // Point 1
+                { x: 2.0, y: 2.0, z: -2.0 },   // Point 2
+                { x: 0.0, y: 2.0, z: -2.0 },   // Point 3
+                { x: 0.0, y: 0.0, z: -2.0 }    // Point 4
+            ];
+            
+            const currentTarget = targetPositions[Math.floor(simulationTime / 10) % 4];
+            
+            // Simple position control simulation
+            const currentPos = simulationData.position;
+            const currentVel = simulationData.velocity;
+            
+            // Calculate desired velocity towards target
+            const kp = 1.0;
+            const kd = 0.5;
+            
+            const errorX = currentTarget.x - (currentPos.x[currentPos.x.length - 1] || 0);
+            const errorY = currentTarget.y - (currentPos.y[currentPos.y.length - 1] || 0);
+            const errorZ = currentTarget.z - (currentPos.z[currentPos.z.length - 1] || 0);
+            
+            const desiredVx = kp * errorX - kd * (currentVel.x[currentVel.x.length - 1] || 0);
+            const desiredVy = kp * errorY - kd * (currentVel.y[currentVel.y.length - 1] || 0);
+            const desiredVz = kp * errorZ - kd * (currentVel.z[currentVel.z.length - 1] || 0);
+            
+            // Update velocity with ocean current effects
+            const oceanCurrent = {
+                x: 0.3 * Math.sin(simulationTime * 0.5),
+                y: 0.2 * Math.cos(simulationTime * 0.3),
+                z: 0.1 * Math.sin(simulationTime * 0.7)
+            };
+            
+            const newVx = (currentVel.x[currentVel.x.length - 1] || 0) + desiredVx * dt + oceanCurrent.x * dt;
+            const newVy = (currentVel.y[currentVel.y.length - 1] || 0) + desiredVy * dt + oceanCurrent.y * dt;
+            const newVz = (currentVel.z[currentVel.z.length - 1] || 0) + desiredVz * dt + oceanCurrent.z * dt;
+            
+            // Update position
+            const newX = (currentPos.x[currentPos.x.length - 1] || 0) + newVx * dt;
+            const newY = (currentPos.y[currentPos.y.length - 1] || 0) + newVy * dt;
+            const newZ = (currentPos.z[currentPos.z.length - 1] || 0) + newVz * dt;
+            
+            // Update attitude (simple oscillation)
+            const newRoll = 0.1 * Math.sin(simulationTime * 2);
+            const newPitch = 0.1 * Math.cos(simulationTime * 1.5);
+            const newYaw = simulationTime * 0.1;
+            
+            // Update motor speeds (based on control effort)
+            const baseSpeed = 800;
+            const motorVariation = 50;
+            const newM1 = baseSpeed + motorVariation * Math.sin(simulationTime * 3);
+            const newM2 = baseSpeed + motorVariation * Math.cos(simulationTime * 3);
+            const newM3 = baseSpeed + motorVariation * Math.sin(simulationTime * 3 + Math.PI);
+            const newM4 = baseSpeed + motorVariation * Math.cos(simulationTime * 3 + Math.PI);
+            
+            // Store data
+            simulationData.time.push(simulationTime);
+            simulationData.position.x.push(newX);
+            simulationData.position.y.push(newY);
+            simulationData.position.z.push(newZ);
+            simulationData.velocity.x.push(newVx);
+            simulationData.velocity.y.push(newVy);
+            simulationData.velocity.z.push(newVz);
+            simulationData.attitude.roll.push(newRoll);
+            simulationData.attitude.pitch.push(newPitch);
+            simulationData.attitude.yaw.push(newYaw);
+            simulationData.motors.m1.push(newM1);
+            simulationData.motors.m2.push(newM2);
+            simulationData.motors.m3.push(newM3);
+            simulationData.motors.m4.push(newM4);
+            simulationData.current.x.push(oceanCurrent.x);
+            simulationData.current.y.push(oceanCurrent.y);
+            simulationData.current.z.push(oceanCurrent.z);
+            
+            // Keep only last 1000 points for performance
+            const maxPoints = 1000;
+            if (simulationData.time.length > maxPoints) {
+                Object.keys(simulationData).forEach(key => {
+                    if (typeof simulationData[key] === 'object') {
+                        Object.keys(simulationData[key]).forEach(subKey => {
+                            simulationData[key][subKey] = simulationData[key][subKey].slice(-maxPoints);
+                        });
+                    } else {
+                        simulationData[key] = simulationData[key].slice(-maxPoints);
+                    }
+                });
+            }
+        }
+
+        function updateVisualizations() {
+            update3DPlot();
+            updatePositionPlot();
+            updateAttitudePlot();
+            updateMotorPlot();
+        }
+
+        function update3DPlot() {
+            const canvas = document.getElementById('canvas3d');
+            const ctx = canvas.getContext('2d');
+            
+            // Get the display size of the canvas
+            const rect = canvas.getBoundingClientRect();
+            const width = rect.width;
+            const height = rect.height;
+            
+            ctx.clearRect(0, 0, width, height);
+            drawCanvasBackground(canvas, ctx, width, height);
+            
+            if (simulationData.position.x.length < 2) return;
+            
+            // Draw 3D trajectory (projected to 2D)
+            ctx.strokeStyle = '#2E86AB';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            const scale = 50;
+            const offsetX = width / 2;
+            const offsetY = height / 2;
+            
+            for (let i = 0; i < simulationData.position.x.length; i++) {
+                const x = simulationData.position.x[i] * scale + offsetX;
+                const y = simulationData.position.y[i] * scale + offsetY;
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Draw current position
+            if (simulationData.position.x.length > 0) {
+                const lastX = simulationData.position.x[simulationData.position.x.length - 1];
+                const lastY = simulationData.position.y[simulationData.position.y.length - 1];
+                const x = lastX * scale + offsetX;
+                const y = lastY * scale + offsetY;
+                
+                ctx.fillStyle = '#C73E1D';
+                ctx.beginPath();
+                ctx.arc(x, y, 8, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            
+            // Draw ocean current arrow
+            if (simulationData.current.x.length > 0) {
+                const currentX = simulationData.current.x[simulationData.current.x.length - 1];
+                const currentY = simulationData.current.y[simulationData.current.y.length - 1];
+                
+                ctx.strokeStyle = '#F18F01';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(offsetX, offsetY);
+                ctx.lineTo(offsetX + currentX * scale * 5, offsetY + currentY * scale * 5);
+                ctx.stroke();
+            }
+        }
+
+        function updatePositionPlot() {
+            const canvas = document.getElementById('canvasPosition');
+            const ctx = canvas.getContext('2d');
+            
+            // Get the display size of the canvas
+            const rect = canvas.getBoundingClientRect();
+            const width = rect.width;
+            const height = rect.height;
+            
+            ctx.clearRect(0, 0, width, height);
+            drawCanvasBackground(canvas, ctx, width, height);
+            
+            if (simulationData.position.x.length < 2) return;
+            
+            // Draw position vs time
+            const colors = ['#C73E1D', '#7209B7', '#2E86AB'];
+            const positions = [simulationData.position.x, simulationData.position.y, simulationData.position.z];
+            
+            positions.forEach((pos, idx) => {
+                ctx.strokeStyle = colors[idx];
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                for (let i = 0; i < pos.length; i++) {
+                    const x = (i / pos.length) * width;
+                    const y = height / 2 - pos[i] * 20; // Scale for visibility
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            });
+        }
+
+        function updateAttitudePlot() {
+            const canvas = document.getElementById('canvasAttitude');
+            const ctx = canvas.getContext('2d');
+            
+            // Get the display size of the canvas
+            const rect = canvas.getBoundingClientRect();
+            const width = rect.width;
+            const height = rect.height;
+            
+            ctx.clearRect(0, 0, width, height);
+            drawCanvasBackground(canvas, ctx, width, height);
+            
+            if (simulationData.attitude.roll.length < 2) return;
+            
+            // Draw attitude angles vs time
+            const colors = ['#C73E1D', '#7209B7', '#2E86AB'];
+            const attitudes = [simulationData.attitude.roll, simulationData.attitude.pitch, simulationData.attitude.yaw];
+            
+            attitudes.forEach((att, idx) => {
+                ctx.strokeStyle = colors[idx];
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                for (let i = 0; i < att.length; i++) {
+                    const x = (i / att.length) * width;
+                    const y = height / 2 - att[i] * 100; // Convert to degrees scale
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            });
+        }
+
+        function updateMotorPlot() {
+            const canvas = document.getElementById('canvasMotor');
+            const ctx = canvas.getContext('2d');
+            
+            // Get the display size of the canvas
+            const rect = canvas.getBoundingClientRect();
+            const width = rect.width;
+            const height = rect.height;
+            
+            ctx.clearRect(0, 0, width, height);
+            drawCanvasBackground(canvas, ctx, width, height);
+            
+            if (simulationData.motors.m1.length < 2) return;
+            
+            // Draw motor speeds vs time
+            const colors = ['#C73E1D', '#7209B7', '#2E86AB', '#F18F01'];
+            const motors = [simulationData.motors.m1, simulationData.motors.m2, simulationData.motors.m3, simulationData.motors.m4];
+            
+            motors.forEach((motor, idx) => {
+                ctx.strokeStyle = colors[idx];
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                for (let i = 0; i < motor.length; i++) {
+                    const x = (i / motor.length) * width;
+                    const y = height - (motor[i] / 1000) * height; // Scale RPM to 0-1000 range
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            });
+        }
+
+        function updateStatusPanel() {
+            if (simulationData.position.x.length === 0) return;
+            
+            const lastIdx = simulationData.position.x.length - 1;
+            const statusContent = document.getElementById('statusContent');
+            
+            statusContent.innerHTML = `
+                <div>Position: (${simulationData.position.x[lastIdx].toFixed(2)}, ${simulationData.position.y[lastIdx].toFixed(2)}, ${simulationData.position.z[lastIdx].toFixed(2)}) m</div>
+                <div>Velocity: (${simulationData.velocity.x[lastIdx].toFixed(2)}, ${simulationData.velocity.y[lastIdx].toFixed(2)}, ${simulationData.velocity.z[lastIdx].toFixed(2)}) m/s</div>
+                <div>Attitude: (${(simulationData.attitude.roll[lastIdx] * 180/Math.PI).toFixed(1)}°, ${(simulationData.attitude.pitch[lastIdx] * 180/Math.PI).toFixed(1)}°, ${(simulationData.attitude.yaw[lastIdx] * 180/Math.PI).toFixed(1)}°)</div>
+                <div>Motor1: ${simulationData.motors.m1[lastIdx].toFixed(0)} RPM</div>
+                <div>Motor2: ${simulationData.motors.m2[lastIdx].toFixed(0)} RPM</div>
+                <div>Motor3: ${simulationData.motors.m3[lastIdx].toFixed(0)} RPM</div>
+                <div>Motor4: ${simulationData.motors.m4[lastIdx].toFixed(0)} RPM</div>
+                <div>Mission: Patrol</div>
+                <div>Time: ${simulationTime.toFixed(1)} s</div>
+            `;
+        }
+
+        function setupSimulationControls() {
+            const pauseBtn = document.getElementById('pauseBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const speedBtn = document.getElementById('speedBtn');
+            
+            pauseBtn.addEventListener('click', function() {
+                if (simulationRunning) {
+                    simulationRunning = false;
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                    pauseBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
+                } else {
+                    simulationRunning = true;
+                    startAnimationLoop();
+                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                }
+            });
+            
+            resetBtn.addEventListener('click', function() {
+                simulationRunning = false;
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                simulationTime = 0;
+                resetSimulationData();
+                initializeCanvasPlots();
+                updateStatusPanel();
+                pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+            });
+            
+            speedBtn.addEventListener('click', function() {
+                simulationSpeed = simulationSpeed === 1 ? 2 : simulationSpeed === 2 ? 5 : 1;
+                speedBtn.innerHTML = `<i class="fas fa-tachometer-alt"></i> Speed: ${simulationSpeed}x`;
+            });
+        }
+
+        function showSimulationComplete() {
+            const statusContent = document.getElementById('statusContent');
+            statusContent.innerHTML += '<div style="color: var(--secondary-color); font-weight: bold;">✓ Simulation Complete!</div>';
+        }
+    </script>
+</body>
+</html>

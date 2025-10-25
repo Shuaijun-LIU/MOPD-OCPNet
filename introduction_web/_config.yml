@@ -23,7 +23,7 @@ plugins:
 
 # Custom variables
 google_analytics: # Add your Google Analytics tracking ID here
-logo: /images/logo.png
+# logo: /images/logo.png  # Logo removed as requested
 github:
   is_project_page: true
   repository_url: https://github.com/username/repository

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dataset Generator - OceanEnv</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <style>
+        .custom-section {
+            margin-bottom: 4rem;
+        }
+        
+        .form-container {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+        
+        .form-group .help-text {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-top: 0.25rem;
+        }
+        
+        .preset-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .preset-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-gray);
+            border: 2px solid var(--medium-gray);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .preset-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        
+        .preset-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        
+        .processing-container {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #f0f8ff 100%);
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .processing-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--medium-gray);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .processing-steps {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .processing-step {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+        }
+        
+        .processing-step.active {
+            opacity: 1;
+        }
+        
+        .processing-step.completed {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+        
+        .processing-step i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .download-container {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #d4edda 0%, #f8fff9 100%);
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .download-info {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .coordinate-range {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .coordinate-range input {
+            flex: 1;
+        }
+        
+        .coordinate-range span {
+            color: var(--light-text);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="OceanEnv Logo" width="40" height="40">
+                <h1>OceanEnv</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="data-description.html">Data Description</a></li>
+                    <li><a href="visualization.html">Visualizations</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="custom-dataset.html" class="active">Custom Dataset</a></li>
+                    <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                    <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Custom Dataset Generator</h2>
+            <p>Generate personalized ocean environment datasets with your specified parameters</p>
+        </div>
+    </section>
+
+    <section class="container custom-section">
+        <div class="form-container">
+            <h2>Dataset Parameters</h2>
+            <p>Configure your custom ocean environment dataset by specifying geographic boundaries, temporal range, and precision settings.</p>
+            
+            <div class="preset-buttons">
+                <button class="preset-btn active" onclick="loadPreset('boston')">Boston Harbor</button>
+                <button class="preset-btn" onclick="loadPreset('usne')">US Northeast</button>
+                <button class="preset-btn" onclick="loadPreset('japan')">Japan Coast</button>
+            </div>
+
+            <form id="datasetForm">
+                <div class="form-grid">
+                    <!-- Geographic Parameters -->
+                    <div>
+                        <h3><i class="fas fa-globe"></i> Geographic Parameters</h3>
+                        
+                        <div class="form-group">
+                            <label for="latMin">Minimum Latitude (°)</label>
+                            <input type="number" id="latMin" name="latMin" step="0.1" value="42.0" min="-90" max="90" required>
+                            <div class="help-text">Southern boundary of the region</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="latMax">Maximum Latitude (°)</label>
+                            <input type="number" id="latMax" name="latMax" step="0.1" value="43.0" min="-90" max="90" required>
+                            <div class="help-text">Northern boundary of the region</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lonMin">Minimum Longitude (°)</label>
+                            <input type="number" id="lonMin" name="lonMin" step="0.1" value="-71.5" min="-180" max="180" required>
+                            <div class="help-text">Western boundary of the region</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lonMax">Maximum Longitude (°)</label>
+                            <input type="number" id="lonMax" name="lonMax" step="0.1" value="-70.5" min="-180" max="180" required>
+                            <div class="help-text">Eastern boundary of the region</div>
+                        </div>
+                    </div>
+
+                    <!-- Temporal Parameters -->
+                    <div>
+                        <h3><i class="fas fa-clock"></i> Temporal Parameters</h3>
+                        
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" name="startDate" value="2025-01-01" required>
+                            <div class="help-text">Beginning of data collection period</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" name="endDate" value="2025-06-30" required>
+                            <div class="help-text">End of data collection period</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeResolution">Time Resolution</label>
+                            <select id="timeResolution" name="timeResolution" required>
+                                <option value="1h">1 Hour</option>
+                                <option value="6h">6 Hours</option>
+                                <option value="12h">12 Hours</option>
+                                <option value="1d">1 Day</option>
+                            </select>
+                            <div class="help-text">Frequency of data collection</div>
+                        </div>
+                    </div>
+
+                    <!-- Precision Parameters -->
+                    <div>
+                        <h3><i class="fas fa-crosshairs"></i> Precision Parameters</h3>
+                        
+                        <div class="form-group">
+                            <label for="spatialResolution">Spatial Resolution</label>
+                            <select id="spatialResolution" name="spatialResolution" required>
+                                <option value="15arcsec">15 arc-second (~450m)</option>
+                                <option value="30arcsec">30 arc-second (~900m)</option>
+                                <option value="1arcmin">1 arc-minute (~1.8km)</option>
+                                <option value="5arcmin">5 arc-minutes (~9km)</option>
+                            </select>
+                            <div class="help-text">Grid resolution for spatial data</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="depthMin">Minimum Depth (m)</label>
+                            <input type="number" id="depthMin" name="depthMin" step="0.1" value="0.4" min="0" max="10000" required>
+                            <div class="help-text">Shallowest depth level</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="depthMax">Maximum Depth (m)</label>
+                            <input type="number" id="depthMax" name="depthMax" step="0.1" value="0.5" min="0" max="10000" required>
+                            <div class="help-text">Deepest depth level</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="submit" class="btn primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        <i class="fas fa-magic"></i> Generate Dataset
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="processing-container" id="processingContainer">
+            <div class="processing-spinner"></div>
+            <h3>Generating Your Custom Dataset</h3>
+            <p>Please wait while we process your parameters and generate the dataset...</p>
+            
+            <div class="processing-steps">
+                <div class="processing-step" id="step1">
+                    <i class="fas fa-mountain"></i>
+                    <span>Extracting terrain data from GEBCO 2025</span>
+                </div>
+                <div class="processing-step" id="step2">
+                    <i class="fas fa-water"></i>
+                    <span>Fetching ocean physics data from CMEMS</span>
+                </div>
+                <div class="processing-step" id="step3">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Interpolating and merging datasets</span>
+                </div>
+                <div class="processing-step" id="step4">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Quality control and validation</span>
+                </div>
+                <div class="processing-step" id="step5">
+                    <i class="fas fa-download"></i>
+                    <span>Preparing download package</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-container" id="downloadContainer">
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+            <h3>Dataset Generated Successfully!</h3>
+            <p>Your custom ocean environment dataset is ready for download.</p>
+            
+            <div class="download-info">
+                <h4>Dataset Information</h4>
+                <p><strong>Region:</strong> <span id="regionInfo"></span></p>
+                <p><strong>Time Range:</strong> <span id="timeInfo"></span></p>
+                <p><strong>Resolution:</strong> <span id="resolutionInfo"></span></p>
+                <p><strong>File Size:</strong> ~2.5 GB</p>
+                <p><strong>Format:</strong> NetCDF (.nc)</p>
+            </div>
+            
+            <a href="../Data_pipeline/Data/Combined/combined_environment.nc" class="btn primary" download="custom_ocean_environment.nc" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                <i class="fas fa-download"></i> Download Dataset
+            </a>
+            
+            <p style="margin-top: 1rem; color: var(--light-text); font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> 
+                This is a sample dataset. For custom parameters, please contact us for specialized processing.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OceanEnv</h3>
+                    <p>A holistic simulation environment for marine robotics training and research</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="data-description.html">Data Description</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                        <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                        <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Contact information will be available upon publication</p>
+                    <p>GitHub: <span class="placeholder">Currently not public</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ocean Environment Dataset Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preset configurations
+        const presets = {
+            boston: {
+                latMin: 42.0,
+                latMax: 43.0,
+                lonMin: -71.5,
+                lonMax: -70.5,
+                startDate: '2025-01-01',
+                endDate: '2025-06-30',
+                timeResolution: '1h',
+                spatialResolution: '15arcsec',
+                depthMin: 0.4,
+                depthMax: 0.5
+            },
+            usne: {
+                latMin: 32.0,
+                latMax: 42.0,
+                lonMin: -70.5,
+                lonMax: -65.5,
+                startDate: '2025-01-01',
+                endDate: '2025-06-30',
+                timeResolution: '1h',
+                spatialResolution: '15arcsec',
+                depthMin: 0.4,
+                depthMax: 0.5
+            },
+            japan: {
+                latMin: 24.0,
+                latMax: 34.0,
+                lonMin: 132.0,
+                lonMax: 142.0,
+                startDate: '2025-01-01',
+                endDate: '2025-06-30',
+                timeResolution: '1h',
+                spatialResolution: '15arcsec',
+                depthMin: 0.4,
+                depthMax: 0.5
+            }
+        };
+
+        function loadPreset(presetName) {
+            const preset = presets[presetName];
+            if (!preset) return;
+
+            // Update form fields
+            document.getElementById('latMin').value = preset.latMin;
+            document.getElementById('latMax').value = preset.latMax;
+            document.getElementById('lonMin').value = preset.lonMin;
+            document.getElementById('lonMax').value = preset.lonMax;
+            document.getElementById('startDate').value = preset.startDate;
+            document.getElementById('endDate').value = preset.endDate;
+            document.getElementById('timeResolution').value = preset.timeResolution;
+            document.getElementById('spatialResolution').value = preset.spatialResolution;
+            document.getElementById('depthMin').value = preset.depthMin;
+            document.getElementById('depthMax').value = preset.depthMax;
+
+            // Update active preset button
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function validateForm() {
+            const latMin = parseFloat(document.getElementById('latMin').value);
+            const latMax = parseFloat(document.getElementById('latMax').value);
+            const lonMin = parseFloat(document.getElementById('lonMin').value);
+            const lonMax = parseFloat(document.getElementById('lonMax').value);
+            const startDate = new Date(document.getElementById('startDate').value);
+            const endDate = new Date(document.getElementById('endDate').value);
+
+            if (latMin >= latMax) {
+                alert('Minimum latitude must be less than maximum latitude.');
+                return false;
+            }
+
+            if (lonMin >= lonMax) {
+                alert('Minimum longitude must be less than maximum longitude.');
+                return false;
+            }
+
+            if (startDate >= endDate) {
+                alert('Start date must be before end date.');
+                return false;
+            }
+
+            const depthMin = parseFloat(document.getElementById('depthMin').value);
+            const depthMax = parseFloat(document.getElementById('depthMax').value);
+            if (depthMin >= depthMax) {
+                alert('Minimum depth must be less than maximum depth.');
+                return false;
+            }
+
+            return true;
+        }
+
+        function updateDatasetInfo() {
+            const latMin = document.getElementById('latMin').value;
+            const latMax = document.getElementById('latMax').value;
+            const lonMin = document.getElementById('lonMin').value;
+            const lonMax = document.getElementById('lonMax').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const spatialResolution = document.getElementById('spatialResolution').options[document.getElementById('spatialResolution').selectedIndex].text;
+
+            document.getElementById('regionInfo').textContent = 
+                `${latMin}°N to ${latMax}°N, ${lonMin}°E to ${lonMax}°E`;
+            document.getElementById('timeInfo').textContent = 
+                `${startDate} to ${endDate}`;
+            document.getElementById('resolutionInfo').textContent = spatialResolution;
+        }
+
+        function simulateProcessing() {
+            const processingContainer = document.getElementById('processingContainer');
+            const downloadContainer = document.getElementById('downloadContainer');
+            
+            // Show processing container
+            processingContainer.style.display = 'block';
+            downloadContainer.style.display = 'none';
+            
+            // Simulate processing steps
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
+            let currentStep = 0;
+            
+            const processStep = () => {
+                if (currentStep > 0) {
+                    document.getElementById(steps[currentStep - 1]).classList.add('completed');
+                    document.getElementById(steps[currentStep - 1]).classList.remove('active');
+                }
+                
+                if (currentStep < steps.length) {
+                    document.getElementById(steps[currentStep]).classList.add('active');
+                    currentStep++;
+                    setTimeout(processStep, 3000); // 2 seconds per step
+                } else {
+                    // All steps completed, show download container
+                    setTimeout(() => {
+                        processingContainer.style.display = 'none';
+                        downloadContainer.style.display = 'block';
+                        updateDatasetInfo();
+                    }, 1000);
+                }
+            };
+            
+            processStep();
+        }
+
+        // Form submission
+        document.getElementById('datasetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            simulateProcessing();
+        });
+
+        // Initialize with Boston preset
+        window.addEventListener('load', function() {
+            loadPreset('boston');
+        });
+    </script>
+</body>
+</html>

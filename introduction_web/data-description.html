@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Description - Combined Ocean Environment Dataset</title>
+    <title>Data Description - OceanEnv</title>
     <link rel="stylesheet" href="styles/main.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <style>
         /* Additional styles specific to this page */
         .data-section {
@@ -58,8 +61,8 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Dataset Logo">
-                <h1>Combined Ocean Environment Dataset</h1>
+                <img src="images/logo.png" alt="OceanEnv Logo" width="40" height="40">
+                <h1>OceanEnv</h1>
             </div>
             <nav>
                 <ul>
@@ -68,6 +71,9 @@
                     <li><a href="visualization.html">Visualizations</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                    <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                    <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
                 </ul>
             </nav>
         </div>
@@ -75,18 +81,18 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Dataset Description</h2>
-            <p>Detailed information about the Combined Ocean Environment Dataset</p>
+            <h2>Framework Description</h2>
+            <p>Detailed information about OceanEnv simulation environment and datasets</p>
         </div>
     </section>
 
     <section class="container data-section">
         <h2>Overview</h2>
-        <p>The Combined Ocean Environment Dataset integrates high-resolution bathymetry data with comprehensive ocean current information to create a unified resource for marine research. This dataset is designed to support a wide range of applications including ocean modeling, marine ecology studies, and climate research.</p>
+        <p>OceanEnv is a modular and scalable framework that unifies large-scale ocean data with advanced simulation tools for marine robotics training. The framework integrates high-resolution bathymetry, ocean physics, biodiversity, and microplastics data to create a comprehensive environment supporting marine robotics applications, pollution monitoring, and environmental research.</p>
         
         <p>The dataset combines two primary sources:</p>
         <ol>
-            <li>GEBCO 2024 global terrain data for bathymetry information</li>
+            <li>GEBCO 2025 global terrain data for bathymetry information</li>
             <li>Copernicus Marine Service (GOPAF) data for ocean currents and physical parameters</li>
         </ol>
         
@@ -97,21 +103,21 @@
         <h2>Data Sources</h2>
         
         <div class="data-source">
-            <h3>GEBCO 2024 Terrain Data</h3>
+            <h3>GEBCO 2025 Terrain Data</h3>
             <p><strong>Source:</strong> General Bathymetric Chart of the Oceans (GEBCO)</p>
-            <p><strong>Description:</strong> The GEBCO_2024 Grid is a global terrain model for ocean and land, providing elevation data at 15 arc-second intervals.</p>
-            <p><strong>Resolution:</strong> 15 arc-second grid (approximately 450m at the equator)</p>
+            <p><strong>Description:</strong> The GEBCO_2025 Grid is a global terrain model for ocean and land, providing elevation data at 15 arc-second intervals.</p>
+            <p><strong>Resolution:</strong> 15 arc-second grid (~450m spatial resolution)</p>
             <p><strong>Coverage:</strong> Global</p>
-            <p><strong>Citation:</strong> GEBCO Compilation Group (2024). GEBCO 2024 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f</p>
+            <p><strong>Citation:</strong> GEBCO Compilation Group (2025). GEBCO 2025 Grid. doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f</p>
         </div>
         
         <div class="data-source">
             <h3>Global Ocean Physics Analysis and Forecast (GOPAF)</h3>
             <p><strong>Source:</strong> Copernicus Marine Service Information (CMEMS)</p>
             <p><strong>Description:</strong> Comprehensive ocean physics data including currents, temperature, and salinity.</p>
-            <p><strong>Resolution:</strong> 1/12° horizontal resolution (approximately 8km at the equator)</p>
+            <p><strong>Resolution:</strong> 0.083° horizontal resolution (~6.8km), interpolated to 15 arc-second (~450m) for final dataset</p>
             <p><strong>Coverage:</strong> Global ocean</p>
-            <p><strong>Citation:</strong> E.U. Copernicus Marine Service Information (2024). Global Ocean Physics Analysis and Forecast (GOPAF). doi:https://doi.org/10.48670/moi-00016</p>
+            <p><strong>Citation:</strong> E.U. Copernicus Marine Service Information (2025). Global Ocean Physics Analysis and Forecast (GOPAF). doi:https://doi.org/10.48670/moi-00016</p>
         </div>
     </section>
 
@@ -133,7 +139,7 @@
                     <td>elevation</td>
                     <td>Elevation/depth relative to mean sea level</td>
                     <td>meters</td>
-                    <td>GEBCO 2024</td>
+                    <td>GEBCO 2025</td>
                 </tr>
             </tbody>
         </table>
@@ -228,7 +234,7 @@
         <ol>
             <li><strong>Terrain Data Processing:</strong>
                 <ul>
-                    <li>Extraction of GEBCO 2024 data for the region of interest</li>
+                    <li>Extraction of GEBCO 2025 data for the region of interest</li>
                     <li>Filtering and quality control of bathymetry data</li>
                     <li>Conversion to standardized format</li>
                 </ul>
@@ -265,6 +271,7 @@
                     <th>Dimension</th>
                     <th>Description</th>
                     <th>Size</th>
+                    <th>Resolution</th>
                 </tr>
             </thead>
             <tbody>
@@ -272,21 +279,25 @@
                     <td>longitude</td>
                     <td>Longitude coordinates</td>
                     <td>Variable (depends on region)</td>
+                    <td>15 arc-second (~450m)</td>
                 </tr>
                 <tr>
                     <td>latitude</td>
                     <td>Latitude coordinates</td>
                     <td>Variable (depends on region)</td>
+                    <td>15 arc-second (~450m)</td>
                 </tr>
                 <tr>
                     <td>depth</td>
                     <td>Depth levels</td>
                     <td>Multiple levels</td>
+                    <td>0.1m intervals</td>
                 </tr>
                 <tr>
                     <td>time</td>
                     <td>Time dimension</td>
                     <td>Multiple time steps</td>
+                    <td>1 hour intervals</td>
                 </tr>
             </tbody>
         </table>
@@ -323,8 +334,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Combined Ocean Environment Dataset</h3>
-                    <p>A comprehensive dataset for ocean environment research</p>
+                    <h3>OceanEnv</h3>
+                    <p>A holistic simulation environment for marine robotics training and research</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -333,16 +344,19 @@
                         <li><a href="data-description.html">Data Description</a></li>
                         <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="custom-dataset.html">Custom Dataset</a></li>
+                        <li><a href="robot-simulation.html">Robot Simulation</a></li>
+                        <li><a href="pollution-simulation.html">Pollution Simulation</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: contact@example.com</p>
-                    <p>GitHub: <a href="https://github.com/username/repository">github.com/username/repository</a></p>
+                    <p>Contact information will be available upon publication</p>
+                    <p>GitHub: <span class="placeholder">Currently not public</span></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Ocean Environment Dataset Team. All rights reserved.</p>
+                <p>&copy; 2025 Ocean Environment Dataset Team. All rights reserved.</p>
             </div>
         </div>
     </footer>
